@@ -6,17 +6,22 @@ using UnityEngine.Tilemaps;
 public class TileScript : MonoBehaviour
 {
     private LevelManager levelManager;
+    private GameManager gameManager;
     private Vector3Int prevPos;
     private Tile prevTile;
     
     [SerializeField]
-    public Tile highlightTile;
+    public Tile badTile;
+
+    [SerializeField]
+    public Tile goodTile;
 
     [SerializeField]
     private Tilemap map;
 
     private void Awake(){
         levelManager = FindObjectOfType<LevelManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // public Point GridPosition {get; private set;}
@@ -34,10 +39,13 @@ public class TileScript : MonoBehaviour
     void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        HoverTile(mousePosition);
-
+        if (levelManager.Placing == true){
+            if (Input.GetMouseButtonDown(0)){
+                PlaceTower(mousePosition);
+            }
+            HoverTile(mousePosition);
+        }
     }
-
 
     private void HoverTile(Vector2 mousePos){
         Vector3Int gridPos = map.WorldToCell(mousePos);
@@ -47,9 +55,22 @@ public class TileScript : MonoBehaviour
             if (levelManager.GetTileValid(mousePos) != 1){
                 prevPos = gridPos;
                 prevTile = map.GetTile<Tile>(gridPos);
-                map.SetTile(gridPos, highlightTile);
+                map.SetTile(gridPos, badTile);
+            } else {
+                prevPos = gridPos;
+                prevTile = map.GetTile<Tile>(gridPos);
+                map.SetTile(gridPos, goodTile);
             }
         }
        
+    }
+
+    private void PlaceTower(Vector2 mousePos){
+        Vector3Int gridPos = map.WorldToCell(mousePos);
+        if (map.GetTile<Tile>(gridPos) == goodTile){
+            Instantiate(gameManager.TowerPreFab, gridPos, Quaternion.identity);
+            levelManager.Placing = false;
+            map.SetTile(prevPos, prevTile);
+        }
     }
 }
