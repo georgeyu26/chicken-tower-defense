@@ -12,6 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af60f7fb8f8c143a8a799b777c434eea, type: 3}
   m_Name: PathTileData
   m_EditorClassIdentifier: 
-  tiles: []
-  movingSpeed: 0
-  buyTower: 0
+  tiles:
+  - {fileID: 11400000, guid: 10bc855d40dcc084f831664a5b824b57, type: 2}
+  - {fileID: 11400000, guid: c3628daed152b4a40a3306a6a5719d8c, type: 2}
+  - {fileID: 11400000, guid: dbdd8d10864c8f24587ceff64a36970d, type: 2}
+  - {fileID: 11400000, guid: 70f103ae50cf8ac4685133e1951eb2e3, type: 2}
+  - {fileID: 11400000, guid: f07b01b2eb25df04cb9e29c017935ab6, type: 2}
+  - {fileID: 11400000, guid: 416e6de8d7090a64495e9d10fc87d18d, type: 2}
+  - {fileID: 11400000, guid: 9410cc004dd8f0f4a90fb150a289545a, type: 2}
+  - {fileID: 11400000, guid: 78f382931aa9e754e8757de20453fa98, type: 2}
+  - {fileID: 11400000, guid: 1101104fe1f00d44ba15dabb99ab98a1, type: 2}
+  - {fileID: 11400000, guid: 1edc9c13b815c924d9a8069965c76efc, type: 2}
+  - {fileID: 11400000, guid: 06f593344b675e548b4eaf677a382c1f, type: 2}
+  movingSpeed: 3
+  buyTower: 1
