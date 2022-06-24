@@ -25,4 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1edc9c13b815c924d9a8069965c76efc, type: 2}
   - {fileID: 11400000, guid: 06f593344b675e548b4eaf677a382c1f, type: 2}
   movingSpeed: 3
-  buyTower: 1
+  buyTower: 0

@@ -15,4 +15,4 @@ MonoBehaviour:
   tiles:
   - {fileID: 11400000, guid: aa143d07d48b2ff4a8b61c59fdac70a5, type: 2}
   movingSpeed: 0
-  buyTower: 0
+  buyTower: 1
