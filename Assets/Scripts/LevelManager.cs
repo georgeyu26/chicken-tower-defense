@@ -13,9 +13,12 @@ public class LevelManager : MonoBehaviour
 
     private Dictionary<TileBase, TileData> dataFromTiles;
     // Start is called before the first frame update
+
+    public bool Placing;
+
     void Start()
     {
-        
+        Placing = true;
     }
 
     // Update is called once per frame
@@ -26,8 +29,8 @@ public class LevelManager : MonoBehaviour
             Vector3Int gridPosition = map.WorldToCell(mousePosition);
 
             TileBase clickedTile = map.GetTile(gridPosition) ;
-            float walkingSpeed = dataFromTiles[clickedTile].movingSpeed;
-            print("Walking speed on " + clickedTile + ": " +  walkingSpeed );
+            // float walkingSpeed = dataFromTiles[clickedTile].movingSpeed;
+            //print("Walking speed on " + clickedTile + ": " +  walkingSpeed );
         }
         
     }
@@ -40,9 +43,24 @@ public class LevelManager : MonoBehaviour
                 dataFromTiles.Add(tile, tileData);
             }
         }
+
+        // Add logic to give each tile a point? and use Point.cs
     }
 
-    public void CreateLevel(){
+    // public float GetTileData(vector2 worldPosition){
+    //     Vector3Int gridPos = map.WorldToCell(worldPosition);
+    //     TileBase tile = map.GetTile(gridPos);
 
+    // }
+
+    public int GetTileValid(Vector2 worldPosition){
+        Vector3Int gridPos = map.WorldToCell(worldPosition);
+        TileBase tile = map.GetTile(gridPos);
+        int buyTower = 0;
+        
+        if(dataFromTiles.ContainsKey(tile)){
+            buyTower = dataFromTiles[tile].buyTower;
+        }
+        return buyTower;
     }
 }
