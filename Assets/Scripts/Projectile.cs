@@ -20,12 +20,18 @@ public class Projectile : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var explosion = Instantiate(
-            hitAnimation, 1.0f/2 * (transform.position + collision.transform.position), Quaternion.identity);
-        
+        // Only create explosion animation if it was passed in
+        GameObject explosion = null;
+        if (hitAnimation) 
+        {
+            explosion = Instantiate(hitAnimation, 1.0f/2 * (transform.position + collision.transform.position), Quaternion.identity);
+        }
         Destroy(collision.gameObject);
         Destroy(gameObject);
-        
-        Destroy(explosion, 0.5f);
+
+        if (explosion)
+        {
+            Destroy(explosion, 0.5f);
+        }
     }
 }
