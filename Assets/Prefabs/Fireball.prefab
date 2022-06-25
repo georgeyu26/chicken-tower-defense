@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  toHit: Chicken
   hitAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
 --- !u!50 &5676414158055736100
 Rigidbody2D:

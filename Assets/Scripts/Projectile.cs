@@ -3,10 +3,12 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private Rigidbody2D _projectile;
-
+    
     public float speed;
 
+    public string toHit;
     public GameObject hitAnimation;
+    
     
     private void Awake()
     {
@@ -20,6 +22,8 @@ public class Projectile : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!collision.gameObject.CompareTag(toHit)) return;
+        
         // Only create explosion animation if it was passed in
         GameObject explosion = null;
         if (hitAnimation) 
