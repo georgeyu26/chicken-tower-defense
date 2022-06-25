@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5676414158055736106}
   - component: {fileID: 5676414158055736100}
   - component: {fileID: 5676414158055736101}
+  - component: {fileID: -6068398583690324467}
   m_Layer: 0
   m_Name: Fireball
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 3dfb1214f2c11a0438ce69874222a718, type: 3}
+  m_Sprite: {fileID: -2121889999, guid: 1db665bef6ebe45008f19e837a84c603, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,5 +138,25 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.85, y: 0.44}
-  m_Direction: 1
+  m_Size: {x: 0.4, y: 0.75}
+  m_Direction: 0
+--- !u!95 &-6068398583690324467
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5676414158055736111}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f111c8cb0e57804f959e5fe45a3f21e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

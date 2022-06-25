@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     
     private void Start()
     {
-        _projectile.AddForce(speed * transform.right, ForceMode2D.Impulse);
+        _projectile.AddForce(speed * transform.up, ForceMode2D.Impulse);
     }
     
     private void OnCollisionEnter2D(Collision2D collision)

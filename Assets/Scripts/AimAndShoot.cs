@@ -33,7 +33,7 @@ public class AimAndShoot : MonoBehaviour
 
         // Create new bullet object
         var bullet = Instantiate(bulletToFire, transform.position, Quaternion.identity);
-        bullet.transform.right = bulletHeading;
+        bullet.transform.up = bulletHeading;
         
         // Have turret sleep for X amount of time
         _cooldownTime += sleepTime;
