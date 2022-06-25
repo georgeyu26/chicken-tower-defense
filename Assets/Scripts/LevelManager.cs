@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        Placing = true;
+        Placing = false;
     }
 
     // Update is called once per frame

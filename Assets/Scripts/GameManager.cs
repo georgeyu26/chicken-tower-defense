@@ -10,10 +10,18 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject towerPrefab;
+    [SerializeField]
+    private Hover hover;
 
     public GameObject TowerPreFab{
         get {
             return towerPrefab;
+        }
+    }
+
+    public Hover Hover {
+        get {
+            return hover;
         }
     }
 
@@ -32,5 +40,6 @@ public class GameManager : MonoBehaviour
     public void PickTower(TowerBtn tower){
         this.ClickedTower = tower;
         levelManager.Placing = true;
+        hover.Activate(tower.Sprite);
     }
 }

@@ -40,7 +40,7 @@ public class TileScript : MonoBehaviour
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (levelManager.Placing == true){
-            if (Input.GetMouseButtonDown(0)){
+            if (Input.GetMouseButtonUp(0)){
                 PlaceTower(mousePosition);
             }
             HoverTile(mousePosition);
@@ -71,6 +71,7 @@ public class TileScript : MonoBehaviour
             Instantiate(gameManager.TowerPreFab, gridPos, Quaternion.identity);
             levelManager.Placing = false;
             map.SetTile(prevPos, prevTile);
+            gameManager.Hover.Deactivate();
         }
     }
 }
