@@ -5340,7 +5340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf436e6f2dc1c04fbc8fed6237fbc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 10
+  spawnRate: 4
   spawnable: {fileID: 8586663157656856128, guid: 78cad837ba3bcb54ba536c8559f9f44b, type: 3}
   waypoints:
   - {fileID: 1192674583}
