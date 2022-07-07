@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 761ab4705ea547e49a1e85a59dff54e4
+guid: a7a8b78b89d7bb64082e9969e2efa18f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,7 +101,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,7 +113,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_0
+      name: Cock_Sprite_Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -142,14 +142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10fd4d3d00f2f17458a146f944430ca4
-      internalID: -1841766536
+      spriteID: a62912a5af16ac744a9236168772e997
+      internalID: 49709332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_1
+      name: Cock_Sprite_Sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -163,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 511ca8e0b59b55f4b932f02e977db8d8
-      internalID: -1151057412
+      spriteID: 7c9bed72b4c172d428c72c6f39cc96ad
+      internalID: -1465859463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_2
+      name: Cock_Sprite_Sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -184,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3a4e66535af462498737048436ae299
-      internalID: -206998943
+      spriteID: 81b29012c0ff98149a032aaf1518703d
+      internalID: 2097452664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_3
+      name: Cock_Sprite_Sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5625e7a39489d9545bd89ae59d0fb483
-      internalID: 274272512
+      spriteID: 8e4c7daa01b24aa40bdd27156de3d944
+      internalID: 1980205182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_4
+      name: Cock_Sprite_Sheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34e7812d6b75b21458678ab28e77cbbc
-      internalID: -1132462640
+      spriteID: 33817102004297548900a3e7ea510cb0
+      internalID: 2027562169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_5
+      name: Cock_Sprite_Sheet_5
       rect:
         serializedVersion: 2
         x: 32
@@ -247,14 +247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81e8f468ccca5cd40a67fa0e4097112a
-      internalID: -540901392
+      spriteID: 620c7d3cc38172e4fb2326c46303b2a1
+      internalID: -1317668441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_6
+      name: Cock_Sprite_Sheet_6
       rect:
         serializedVersion: 2
         x: 64
@@ -268,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25564202a3bd14a4fb1b74cc9ad22d4e
-      internalID: 1589475210
+      spriteID: f96f0f83d4ae59146a4f473c29fcfc24
+      internalID: -1017498894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_7
+      name: Cock_Sprite_Sheet_7
       rect:
         serializedVersion: 2
         x: 96
@@ -289,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c960915f923d674686407785f6717f2
-      internalID: -1647440385
+      spriteID: 4147c606178e418498b28023c6388921
+      internalID: 1389707508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_8
+      name: Cock_Sprite_Sheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -310,14 +310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc26603a54c2a874f93d52492ef9f3f9
-      internalID: -760770113
+      spriteID: 9e9575bb7fd01e048b25b8ad6ecdac2f
+      internalID: -957119108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_9
+      name: Cock_Sprite_Sheet_9
       rect:
         serializedVersion: 2
         x: 32
@@ -331,14 +331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b704ea8b55ca3f0479ddd1946f9d940c
-      internalID: 806171527
+      spriteID: 4d7fe37ee46ea6546a4abba633737f46
+      internalID: -1554353561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_10
+      name: Cock_Sprite_Sheet_10
       rect:
         serializedVersion: 2
         x: 64
@@ -352,14 +352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58387d99206af664fa0dfa3cffc8f309
-      internalID: -387225257
+      spriteID: 097c852b8b45a2c4e9a4c30136a7740b
+      internalID: -1403655619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_11
+      name: Cock_Sprite_Sheet_11
       rect:
         serializedVersion: 2
         x: 96
@@ -373,14 +373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a75870e2f8af6734f8e0d297e74de649
-      internalID: 1979451360
+      spriteID: 27e5b134d20972849923bfa9b503c5c2
+      internalID: -1833772703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_12
+      name: Cock_Sprite_Sheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -394,14 +394,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 373d1f81b1958d94eb55b4e674cc1b62
-      internalID: 1073269693
+      spriteID: 4206bd9e89e80c043bc1308a26c3ef76
+      internalID: -3004863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_13
+      name: Cock_Sprite_Sheet_13
       rect:
         serializedVersion: 2
         x: 32
@@ -415,14 +415,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18e7af3e1707f9648a90fd4e34e6d8be
-      internalID: 2117749463
+      spriteID: 8d7cb51aab07f064f9c0ddf36c04ebef
+      internalID: 1134521415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_14
+      name: Cock_Sprite_Sheet_14
       rect:
         serializedVersion: 2
         x: 64
@@ -436,14 +436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89e2bfff1d0269542a5071d53fa30205
-      internalID: -1506344840
+      spriteID: 6b5a1695ac3e56448a9c9f43b8d518b9
+      internalID: -1295276329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Sprite_Sheet_15
+      name: Cock_Sprite_Sheet_15
       rect:
         serializedVersion: 2
         x: 96
@@ -457,8 +457,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c24f0371b0d7a548a46ce7a2719c562
-      internalID: -1496412061
+      spriteID: 75e14349aaa40ad4c83b02a69d20a838
+      internalID: 1525035796
       vertices: []
       indices: 
       edges: []
@@ -474,22 +474,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Chicken_Sprite_Sheet_10: -387225257
-      Chicken_Sprite_Sheet_13: 2117749463
-      Chicken_Sprite_Sheet_15: -1496412061
-      Chicken_Sprite_Sheet_9: 806171527
-      Chicken_Sprite_Sheet_2: -206998943
-      Chicken_Sprite_Sheet_4: -1132462640
-      Chicken_Sprite_Sheet_8: -760770113
-      Chicken_Sprite_Sheet_11: 1979451360
-      Chicken_Sprite_Sheet_5: -540901392
-      Chicken_Sprite_Sheet_0: -1841766536
-      Chicken_Sprite_Sheet_6: 1589475210
-      Chicken_Sprite_Sheet_14: -1506344840
-      Chicken_Sprite_Sheet_3: 274272512
-      Chicken_Sprite_Sheet_7: -1647440385
-      Chicken_Sprite_Sheet_12: 1073269693
-      Chicken_Sprite_Sheet_1: -1151057412
+      Cock_Sprite_Sheet_13: 1134521415
+      Cock_Sprite_Sheet_9: -1554353561
+      Cock_Sprite_Sheet_8: -957119108
+      Cock_Sprite_Sheet_3: 1980205182
+      Cock_Sprite_Sheet_11: -1833772703
+      Cock_Sprite_Sheet_1: -1465859463
+      Cock_Sprite_Sheet_15: 1525035796
+      Cock_Sprite_Sheet_7: 1389707508
+      Cock_Sprite_Sheet_5: -1317668441
+      Cock_Sprite_Sheet_2: 2097452664
+      Cock_Sprite_Sheet_4: 2027562169
+      Cock_Sprite_Sheet_6: -1017498894
+      Cock_Sprite_Sheet_0: 49709332
+      Cock_Sprite_Sheet_10: -1403655619
+      Cock_Sprite_Sheet_14: -1295276329
+      Cock_Sprite_Sheet_12: -3004863
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
