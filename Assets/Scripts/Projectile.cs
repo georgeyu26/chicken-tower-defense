@@ -5,11 +5,11 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D _projectile;
     
     public float speed;
+    public int projectileStrength;
 
     public string toHit;
     public GameObject hitAnimation;
-    
-    
+
     private void Awake()
     {
         _projectile = transform.GetComponent<Rigidbody2D>();
@@ -30,7 +30,11 @@ public class Projectile : MonoBehaviour
         {
             explosion = Instantiate(hitAnimation, 1.0f/2 * (transform.position + collision.transform.position), Quaternion.identity);
         }
-        Destroy(collision.gameObject);
+        
+        // Reduce HP of target
+        collision.gameObject.SendMessage("TakeDamage", projectileStrength);
+        
+        // Get rid of the bullet itself since it has collided with target
         Destroy(gameObject);
 
         if (explosion)

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Chicken
+  - Tower
   layers:
   - Default
   - TransparentFX
@@ -12,10 +13,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Chicken (Enemy)
-  - 
-  - 
-  - 
+  - Chicken
+  - Tower
+  - Enemy Projectile
+  - Tower Projectile
   - 
   - 
   - 

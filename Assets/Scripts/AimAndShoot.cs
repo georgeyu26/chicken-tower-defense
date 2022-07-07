@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AimAndShoot : MonoBehaviour
@@ -9,7 +10,12 @@ public class AimAndShoot : MonoBehaviour
     public GameObject bulletToFire;
 
     private float _cooldownTime;
-    
+    private Bounds _bounds;
+    private void Awake()
+    {
+        _bounds = transform.GetComponent<Renderer>().bounds;
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -21,21 +27,22 @@ public class AimAndShoot : MonoBehaviour
         }
         
         // Get the first enemy within the radius (note that this means it gets the _closest_ enemy)
-        var enemy = Physics2D.CircleCast(
-            transform.position, radiusOfAttack, Vector2.zero, 
-            Mathf.Infinity, LayerMask.GetMask(enemyLayer));
+        var enemy = Physics2D.OverlapCircle(_bounds.center, radiusOfAttack, LayerMask.GetMask(enemyLayer));
 
         // Check if there is an enemy in radius of attack, otherwise return
         if (!enemy) return;
         
         // Calculate the trajectory of bullet: have to flatten z-axis or bullet will move in 3D
-        var bulletHeading = enemy.transform.position - transform.position;
+        var bulletHeading = enemy.transform.position - _bounds.center;
 
         // Create new bullet object
-        var bullet = Instantiate(bulletToFire, transform.position, Quaternion.identity);
+        var bullet = Instantiate(bulletToFire, _bounds.center, Quaternion.identity);
         bullet.transform.up = bulletHeading;
         
         // Have turret sleep for X amount of time
         _cooldownTime += sleepTime;
     }
+    
+    
+    
 }
