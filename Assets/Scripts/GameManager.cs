@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Hover hover;
 
+    private Range selectedTower;
     public GameObject TowerPreFab{
         get {
             return towerPrefab;
@@ -35,6 +36,16 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SelectTower(Range tower){
+        selectedTower = tower;
+        selectedTower.Select();
+    }
+
+    public void DisableTower(Range tower){
+        selectedTower = tower;
+        selectedTower.Disable();
     }
 
     public void PickTower(TowerBtn tower){
