@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.EventSystems;
 
 public class TileScript : MonoBehaviour
 {
@@ -68,7 +69,7 @@ public class TileScript : MonoBehaviour
     private void PlaceTower(Vector2 mousePos){
         Vector3Int gridPos = map.WorldToCell(mousePos);
         if (map.GetTile<Tile>(gridPos) == goodTile){
-            Instantiate(gameManager.TowerPreFab, gridPos, Quaternion.identity);
+            GameObject tower = (GameObject) Instantiate(gameManager.ClickedTower.TowerPrefab, gridPos, Quaternion.identity);
             levelManager.Placing = false;
             map.SetTile(prevPos, prevTile);
             gameManager.Hover.Deactivate();
