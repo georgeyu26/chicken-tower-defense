@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Hover hover;
 
+    public ObjectPool Pool {get; set;}
+
     private Range selectedTower;
     public GameObject TowerPreFab{
         get {
@@ -24,6 +26,10 @@ public class GameManager : MonoBehaviour
         get {
             return hover;
         }
+    }
+
+    private void Awake() {
+        Pool = GetComponent<ObjectPool>();
     }
 
     // Start is called before the first frame update
@@ -52,5 +58,28 @@ public class GameManager : MonoBehaviour
         this.ClickedTower = tower;
         levelManager.Placing = true;
         hover.Activate(tower.Sprite);
+    }
+
+    public void StartRound() {
+        StartCoroutine(SpawnRound());
+    }
+
+    private IEnumerator SpawnRound() {
+        int monsterIndex = Random.Range(0, 2);
+
+        string type = string.Empty;
+
+        switch (monsterIndex) {
+            case 0:
+                type = "Chicken";
+                break;
+            case 1:
+                type = "Cock";
+                break;
+        }
+
+        Pool.GetObject(type);
+
+        yield return new WaitForSeconds(2.5f);
     }
 }
