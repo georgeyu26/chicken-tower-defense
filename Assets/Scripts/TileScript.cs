@@ -30,6 +30,10 @@ public class TileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PauseMenu.paused)
+        {
+            return;
+        }
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int gridPos = map.WorldToCell(mousePosition);
         prevPos = gridPos;
@@ -39,6 +43,10 @@ public class TileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.paused)
+        {
+            return;
+        }
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (levelManager.Placing == true){
             if (Input.GetMouseButtonUp(0)){

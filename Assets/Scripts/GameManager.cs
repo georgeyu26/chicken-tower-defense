@@ -69,6 +69,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void PickTower(TowerBtn tower){
+        if (PauseMenu.paused)
+        {
+            return;
+        }
         this.ClickedTower = tower;
         levelManager.Placing = true;
         hover.Activate(tower.Sprite);
