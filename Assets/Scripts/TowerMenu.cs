@@ -23,8 +23,8 @@ public class TowerMenu : MonoBehaviour
     /* Towers to add
 
     Basic
-    - Monkey
-    - Fry Cook
+    - Squirrel
+    - Goose
 
     Medieval
     - Watermelon launcher
