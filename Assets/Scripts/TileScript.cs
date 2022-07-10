@@ -18,6 +18,9 @@ public class TileScript : MonoBehaviour
     public Tile goodTile;
 
     [SerializeField]
+    public Tile usedTile;
+
+    [SerializeField]
     private Tilemap map;
 
     private void Awake(){
@@ -30,6 +33,10 @@ public class TileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PauseMenu.paused)
+        {
+            return;
+        }
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int gridPos = map.WorldToCell(mousePosition);
         prevPos = gridPos;
@@ -39,12 +46,17 @@ public class TileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.paused)
+        {
+            return;
+        }
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (levelManager.Placing == true){
             if (Input.GetMouseButtonUp(0)){
                 PlaceTower(mousePosition);
+            } else {
+                HoverTile(mousePosition);
             }
-            HoverTile(mousePosition);
         }
     }
 
@@ -52,8 +64,7 @@ public class TileScript : MonoBehaviour
         Vector3Int gridPos = map.WorldToCell(mousePos);
         if (gridPos != prevPos){
             map.SetTile(prevPos, prevTile);
- 
-            if (levelManager.GetTileValid(mousePos) != 1){
+            if (levelManager.GetTileValid(mousePos) != 1 || map.GetTile<Tile>(gridPos) == usedTile){
                 prevPos = gridPos;
                 prevTile = map.GetTile<Tile>(gridPos);
                 map.SetTile(gridPos, badTile);
@@ -69,7 +80,13 @@ public class TileScript : MonoBehaviour
     private void PlaceTower(Vector2 mousePos){
         Vector3Int gridPos = map.WorldToCell(mousePos);
         if (map.GetTile<Tile>(gridPos) == goodTile){
+            levelManager.Placing = false;
+            gameManager.Hover.Deactivate();
             GameObject tower = (GameObject) Instantiate(gameManager.ClickedTower.TowerPrefab, gridPos, Quaternion.identity);
+            map.SetTile(gridPos, usedTile);
+            // Use offscreen tile to reset
+            prevPos = new Vector3Int(-11, -5, 0);
+        } else {
             levelManager.Placing = false;
             map.SetTile(prevPos, prevTile);
             gameManager.Hover.Deactivate();

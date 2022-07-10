@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: this is template code, behaviour was moved to GameManager
 public class SpawnEntity : MonoBehaviour
 {
     public float spawnRate;
@@ -14,16 +15,16 @@ public class SpawnEntity : MonoBehaviour
     
     private void Update()
     {
-        if (_timeToSpawn <= 0)
-        {
-            AfterInstantiation(Instantiate(spawnable, transform.position, Quaternion.identity));
+        // if (_timeToSpawn <= 0)
+        // {
+        //     AfterInstantiation(Instantiate(spawnable, transform.position, Quaternion.identity));
 
-            _timeToSpawn = spawnRate;
-        }
-        else
-        {
-            _timeToSpawn -= Time.deltaTime;
-        }
+        //     _timeToSpawn = spawnRate;
+        // }
+        // else
+        // {
+        //     _timeToSpawn -= Time.deltaTime;
+        // }
     }
 
     // When we start abstracting things after the demo, this SpawnEntity will become a generic factory that
