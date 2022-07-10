@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,19 @@ public class GameManager : MonoBehaviour
     private Hover hover;
 
     public ObjectPool Pool {get; set;}
+
+    private int roundNumber = 0;
+    public bool roundActive {
+        get {return activeChickens.Count > 0;}
+    }
+
+    [SerializeField]
+    private TextMeshProUGUI roundText;
+
+    [SerializeField]
+    private GameObject nextRoundButton;
+
+    private List<GameObject> activeChickens = new List<GameObject>();
 
     private Range selectedTower;
     public GameObject TowerPreFab{
@@ -61,25 +75,58 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartRound() {
-        StartCoroutine(SpawnRound());
+        roundNumber++;
+        roundText.text = string.Format("Round {0}", roundNumber);
+        SpawnRound();
+        // TODO: uncomment this when implemented
+        //nextRoundButton.SetActive(false);
     }
 
-    private IEnumerator SpawnRound() {
-        int monsterIndex = Random.Range(0, 2);
+    // TODO: need to call this when chicken is killed or exits
+    public void RemoveChicken(GameObject chicken) {
+        activeChickens.Remove(chicken);
+        if (!roundActive) {
+            nextRoundButton.SetActive(true);
+        }
+    }
 
-        string type = string.Empty;
+    private IEnumerator spawn(string s) {
+        for (int i = 0; i < s.Length; i++) {
+            if (s[i] == 'a') {
+                activeChickens.Add(Pool.GetObject("Chicken"));
+            } else if (s[i] == 'b') {
+                activeChickens.Add(Pool.GetObject("Cock"));
+            } else {
+                yield return new WaitForSeconds(s[i] - '0');
+            }
+        }
+        // activeChickens.Add(Pool.GetObject("Chicken"));
+        // yield return new WaitForSeconds(1);
+        // activeChickens.Add(Pool.GetObject("Chicken"));
+    }
 
-        switch (monsterIndex) {
-            case 0:
-                type = "Chicken";
-                break;
+    private void SpawnRound() {
+        string s = "";
+        switch (roundNumber) {
             case 1:
-                type = "Cock";
+                s = "a2a2a2a2a";
+                break;
+            case 2:
+                s = "a1a1a1a1a1a1a1a";
+                break;
+            case 3:
+                s = "b2b2b2b2b";
+                break;
+            case 4:
+                s = "b2b2b2b2b1a1a1a1a1a";
+                break;
+            case 5:
+                s = "b1b1b1b1b1b1b1b1b1b";
+                break;
+            case 6:
+                s = "aaaaaaaaaa";
                 break;
         }
-
-        Pool.GetObject(type);
-
-        yield return new WaitForSeconds(2.5f);
+        StartCoroutine(spawn(s));
     }
 }

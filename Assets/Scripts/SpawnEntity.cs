@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: this is template code, behaviour was moved to GameManager
 public class SpawnEntity : MonoBehaviour
 {
     public float spawnRate;
