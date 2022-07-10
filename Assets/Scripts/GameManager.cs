@@ -1,9 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
+    private int currency;
+    [SerializeField]
+    private TextMeshProUGUI currencyTxt;
+
+    public int Currency{
+        get{
+            return currency;
+        }
+        set{
+            this.currency = value;
+            this.currencyTxt.text = value.ToString() + " $";
+        }
+    }
 
     public TowerBtn ClickedTower { get; private set; }
     private LevelManager levelManager;
@@ -35,6 +51,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Currency = 100; // starting amount of money given to player
         levelManager = FindObjectOfType<LevelManager>();
     }
 
