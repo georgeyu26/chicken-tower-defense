@@ -9,6 +9,15 @@ public class TowerBtn : MonoBehaviour
 
     [SerializeField]
     private Sprite sprite;
+
+    [SerializeField]
+    private int cost;
+
+    public int Cost{
+        get{
+            return cost;
+        }
+    }
     
     public GameObject TowerPrefab{
         get{
