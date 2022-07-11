@@ -266,6 +266,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 100
   deathAnimation: {fileID: 0}
+  goodTile: {fileID: 11400000, guid: aa143d07d48b2ff4a8b61c59fdac70a5, type: 2}
 --- !u!114 &30638155734493624
 MonoBehaviour:
   m_ObjectHideFlags: 0
