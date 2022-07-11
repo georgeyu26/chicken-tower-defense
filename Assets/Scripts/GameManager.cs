@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         }
         set{
             this.currency = value;
-            this.currencyTxt.text = value.ToString() + " $";
+            this.currencyTxt.text = value.ToString() + "<size=40> <sprite=0> </size>";
         }
     }
 
