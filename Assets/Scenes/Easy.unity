@@ -305,6 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &76211854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2364,6 +2365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 7063131419686823556, guid: 6bdfd44d12d3841b8be1028fd54636da, type: 3}
   sprite: {fileID: 1069330851, guid: a39f0c74b4b9d4aa98ea35b9e83ecee4, type: 3}
+  cost: 0
 --- !u!114 &555417347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6808,6 +6810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &956676852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6974,6 +6977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &988310730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7175,6 +7179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &1070628826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7890,6 +7895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &1393603176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8202,6 +8208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &1483548524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8628,6 +8635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
+  cost: 0
 --- !u!114 &1672518997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9017,6 +9025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
+  cost: 52
 --- !u!114 &1810983555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9130,6 +9139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
+  cost: 0
 --- !u!114 &1815964273
 MonoBehaviour:
   m_ObjectHideFlags: 0
