@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 0}
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
   cost: 0
@@ -2315,7 +2316,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 655054259}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2363,9 +2364,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 555417347}
   towerPrefab: {fileID: 7063131419686823556, guid: 6bdfd44d12d3841b8be1028fd54636da, type: 3}
   sprite: {fileID: 1069330851, guid: a39f0c74b4b9d4aa98ea35b9e83ecee4, type: 3}
-  cost: 0
+  cost: 20
 --- !u!114 &555417347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2479,8 +2481,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1810983550}
-  - {fileID: 956676849}
   - {fileID: 555417344}
+  - {fileID: 956676849}
   - {fileID: 1483548521}
   - {fileID: 1070628823}
   - {fileID: 1815964270}
@@ -6760,7 +6762,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 655054259}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6808,6 +6810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 0}
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
   cost: 0
@@ -6975,6 +6978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 0}
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
   cost: 0
@@ -7177,6 +7181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 0}
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
   cost: 0
@@ -7893,6 +7898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 0}
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
   cost: 0
@@ -8206,6 +8212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 0}
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
   cost: 0
@@ -8633,6 +8640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 0}
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
   cost: 0
@@ -9023,6 +9031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 1810983551}
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
   cost: 52
@@ -9137,6 +9146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1939e7604b1efaf47a630e35dccfba6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerBtn: {fileID: 0}
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
   cost: 0
