@@ -2348,7 +2348,7 @@ RectTransform:
   m_GameObject: {fileID: 555417343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.3, z: 1}
+  m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 655054259}
@@ -9856,8 +9856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0adfa866805da224b9b285d3018770d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currency: 1000
-  currencyText: {fileID: 0}
+  currencyTxt: {fileID: 1339895692}
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   hover: {fileID: 35816580}
   roundText: {fileID: 1217106803}
