@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerMenu : MonoBehaviour
 {
+    private bool managementEnable;
+    private bool upgradeEnable;
+
     // Start is called before the first frame update
     private GameManager gameManager;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+
+        managementEnable = false;
+        upgradeEnable = false;
     }
 
     // Update is called once per frame
@@ -50,5 +57,8 @@ public class TowerMenu : MonoBehaviour
         gameManager.SelectTower(range);
 
         // Add logic for showing tower upgrades here
+        managementEnable = !managementEnable;
+
+        gameManager.towerManagementPanel.SetActive(managementEnable);
     }
 }
