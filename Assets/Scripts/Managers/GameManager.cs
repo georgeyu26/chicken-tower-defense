@@ -89,9 +89,11 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        this.ClickedTower = tower;
-        levelManager.Placing = true;
-        hover.Activate(tower.Sprite);
+        if (Currency >= tower.Cost){
+            this.ClickedTower = tower;
+            levelManager.Placing = true;
+            hover.Activate(tower.Sprite);
+        }
     }
 
     public void StartRound() {

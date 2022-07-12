@@ -305,6 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &76211854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1257,6 +1258,153 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334365910}
+  m_CullTransparentMesh: 1
+--- !u!1 &378358589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378358590}
+  - component: {fileID: 378358594}
+  - component: {fileID: 378358593}
+  - component: {fileID: 378358592}
+  - component: {fileID: 378358591}
+  m_Layer: 5
+  m_Name: ShopButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &378358590
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378358589}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 856423870}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 30, y: 30}
+  m_SizeDelta: {x: 60, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &378358591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378358589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491ef0379aedaae429cd1f70b5802fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopPanel: {fileID: 655054258}
+--- !u!114 &378358592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378358589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 378358593}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 378358591}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &378358593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378358589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1628181703, guid: 3d8f4bfecfc86e94c98052342c9b3aa4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &378358594
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378358589}
   m_CullTransparentMesh: 1
 --- !u!1 &388989878
 GameObject:
@@ -2217,6 +2365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 7063131419686823556, guid: 6bdfd44d12d3841b8be1028fd54636da, type: 3}
   sprite: {fileID: 1069330851, guid: a39f0c74b4b9d4aa98ea35b9e83ecee4, type: 3}
+  cost: 0
 --- !u!114 &555417347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2342,10 +2491,10 @@ RectTransform:
   m_Father: {fileID: 856423870}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -60, y: 190}
-  m_SizeDelta: {x: 120, y: 380}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 432.25323, y: 30}
+  m_SizeDelta: {x: 735.4937, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655054260
 MonoBehaviour:
@@ -2662,6 +2811,7 @@ RectTransform:
   - {fileID: 655054259}
   - {fileID: 1339895691}
   - {fileID: 1217106802}
+  - {fileID: 378358590}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6660,6 +6810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &956676852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6826,6 +6977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &988310730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7027,6 +7179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &1070628826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7742,6 +7895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &1393603176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8054,6 +8208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 2685355438672566736, guid: c1787cb5f9bea40278a844912784a8c8, type: 3}
   sprite: {fileID: -18237121, guid: 1f89baa8fb6ff4f999b7eed269beac7e, type: 3}
+  cost: 0
 --- !u!114 &1483548524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8480,6 +8635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
+  cost: 0
 --- !u!114 &1672518997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8869,6 +9025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
+  cost: 52
 --- !u!114 &1810983555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8982,6 +9139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
+  cost: 0
 --- !u!114 &1815964273
 MonoBehaviour:
   m_ObjectHideFlags: 0

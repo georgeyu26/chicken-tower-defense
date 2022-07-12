@@ -86,6 +86,8 @@ public class TileScript : MonoBehaviour
             map.SetTile(gridPos, usedTile);
             // Use offscreen tile to reset
             prevPos = new Vector3Int(-11, -5, 0);
+
+            gameManager.Currency -= gameManager.ClickedTower.Cost;
         } else {
             levelManager.Placing = false;
             map.SetTile(prevPos, prevTile);
