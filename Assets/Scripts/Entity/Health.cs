@@ -3,47 +3,46 @@ using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public abstract class Health : MonoBehaviour
 {
     public int currentHealth;
     public int maxHealth = 100;
 
     public GameObject deathAnimation;
-    private Tilemap map;
 
-    [SerializeField]
-    public Tile goodTile;
-
+    private SpriteRenderer _sp;
+    
     private void Start()
     {
         currentHealth = maxHealth;
-        map = GameObject.Find("Ground").GetComponent<Tilemap>();;
+        _sp = GetSpriteRenderer();
+        InitializeMapComponents();
     }
 
     private void Update()
     {
-        if (currentHealth <= 0)
-        {
-            // Only create death animation if it was passed in
-            GameObject deathAnim = null;
-            if (deathAnimation) 
-            {
-                deathAnim = Instantiate(deathAnimation, transform.position, Quaternion.identity);
-            }
-            Vector3 objectPos = gameObject.transform.position;
-            Vector3Int tilePos = Vector3Int.FloorToInt(objectPos);
-            map.SetTile(tilePos, goodTile);
-            Destroy(gameObject);
+        // Change hue of object depending on how much damage it has taken (gets redder as HP drops)
+        _sp.color = new Color(
+            1,
+            (float)currentHealth / maxHealth,
+            (float)currentHealth / maxHealth);
 
-            if (deathAnim)
-            {
-                Destroy(deathAnim, 0.5f);
-            }
-        }
+        // What follows needs only be executed if object is dead
+        if (currentHealth > 0) return;
+        
+        // Only create death animation if it was passed in
+        GameObject deathAnim = null;
+        if (deathAnimation) deathAnim = Instantiate(deathAnimation, transform.position, Quaternion.identity);
+        HandleGameStateInteractions();
+        Destroy(gameObject);
+
+        if (deathAnim) Destroy(deathAnim, 0.5f);
     }
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-    }
+    // Method called externally only
+    public void TakeDamage(int damage) { currentHealth -= damage; }
+    
+    protected abstract void InitializeMapComponents();
+    protected abstract void HandleGameStateInteractions();
+    protected abstract SpriteRenderer GetSpriteRenderer();
 }

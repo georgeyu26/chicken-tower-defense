@@ -23,6 +23,7 @@ public class FaceRightDirection : MonoBehaviour
     private void Update()
     {
         // Have the chicken face the correct direction (left or right)
+        // TODO: add a sensitivity parameter so chickens don't shake erratically 
         _sp.flipX = _rb.velocity.x > 0;
         
         // Have the chicken waddle a bit as it walks
