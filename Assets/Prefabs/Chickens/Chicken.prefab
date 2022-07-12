@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8586663157656856132}
-  - component: {fileID: -6098538919320473050}
+  - component: {fileID: -3019658894835792677}
   - component: {fileID: 8586663157656856133}
   - component: {fileID: 8586663157656856130}
   - component: {fileID: 8586663157656856131}
   - component: {fileID: 7811831311146795473}
   - component: {fileID: 7347612870455674977}
-  - component: {fileID: 6197107519074562602}
+  - component: {fileID: 1187934212831726118}
   m_Layer: 6
   m_Name: Chicken
   m_TagString: Chicken
@@ -39,7 +39,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &-6098538919320473050
+--- !u!212 &-3019658894835792677
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   sleepTime: 1.5
   enemyLayer: Tower
   meleeAnimation: {fileID: 7021815084036882580, guid: 4a89893fdf9d85943997dacaf0106814, type: 3}
---- !u!114 &6197107519074562602
+--- !u!114 &1187934212831726118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,12 +185,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8586663157656856128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b379bf7041696439d530eabed9fbf8, type: 3}
+  m_Script: {fileID: 11500000, guid: e2e45da9d0b94d5bae8b26e141c45e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 10
-  deathAnimation: {fileID: 0}
+  maxHealth: 30
+  deathAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
+  goodTile: {fileID: 0}
 --- !u!1 &8586663157696118026
 GameObject:
   m_ObjectHideFlags: 0

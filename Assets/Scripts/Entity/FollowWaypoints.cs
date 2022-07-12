@@ -38,7 +38,7 @@ public class FollowWaypoints : MonoBehaviour
                          (1 + brakingFactor * 1.0f/180 * Vector2.Angle(_body.velocity, toFace)) * _body.velocity;
         
         // Move chicken towards current facing direction (and don't ever rotate the rigidbody)
-        _body.AddForce(newHeading, ForceMode2D.Force);
+        if (Time.timeScale != 0) _body.AddForce(newHeading, ForceMode2D.Force);
         transform.rotation = new Quaternion(0,0,0,0);
     }
 }
