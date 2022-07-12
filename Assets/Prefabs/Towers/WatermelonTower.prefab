@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6120546655917501345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.04, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalPosition: {x: 0.39, y: 0.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8708355129597801050}
@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 3647776075841543024}
   - component: {fileID: 8899485256183697260}
   - component: {fileID: 30638155734493624}
-  - component: {fileID: 853545383528886418}
   m_Layer: 7
   m_Name: WatermelonTower
   m_TagString: Tower
@@ -200,8 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add13ff5961d4494686035fdea0d8012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusOfAttack: 5
-  sleepTime: 5
+  radiusOfAttack: 2
+  sleepTime: 4
   enemyLayer: Chicken
   bulletToFire: {fileID: 5676414158055736111, guid: 1a204cdef1b7a644d9addb8be7c34bae, type: 3}
 --- !u!50 &8349493096366945676
@@ -241,8 +240,8 @@ BoxCollider2D:
   m_Offset: {x: 0.54333335, y: 0.57666665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0.75, y: 0.53125}
     newSize: {x: 1.63, y: 1.73}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -260,13 +259,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7063131419686823556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b379bf7041696439d530eabed9fbf8, type: 3}
+  m_Script: {fileID: 11500000, guid: 94e8d22831e548f1852830418d103d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 100
   deathAnimation: {fileID: 0}
-  goodTile: {fileID: 11400000, guid: aa143d07d48b2ff4a8b61c59fdac70a5, type: 2}
+  goodTile: {fileID: 0}
 --- !u!114 &30638155734493624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,23 +278,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236834f5ed76846f5a69e8009aa0831c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &853545383528886418
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7063131419686823556}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6e47511f6a8024bb48ce7a259194da99, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

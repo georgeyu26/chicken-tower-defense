@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add13ff5961d4494686035fdea0d8012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusOfAttack: 5
-  sleepTime: 5
+  radiusOfAttack: 3
+  sleepTime: 8
   enemyLayer: Chicken
   bulletToFire: {fileID: 5676414158055736111, guid: 1a204cdef1b7a644d9addb8be7c34bae, type: 3}
 --- !u!50 &2098923445061790396
@@ -162,11 +162,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 935285142970694068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b379bf7041696439d530eabed9fbf8, type: 3}
+  m_Script: {fileID: 11500000, guid: 94e8d22831e548f1852830418d103d48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 100
+  maxHealth: 300
   deathAnimation: {fileID: 0}
   goodTile: {fileID: 11400000, guid: aa143d07d48b2ff4a8b61c59fdac70a5, type: 2}
 --- !u!114 &7967814725188859528
@@ -208,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 4183572174193849489}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.526, y: 0.543, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1595908840359079274}
