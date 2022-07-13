@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Tilemaps;
 using UnityEngine;
 
 public abstract class Health : MonoBehaviour
@@ -10,23 +7,21 @@ public abstract class Health : MonoBehaviour
 
     public GameObject deathAnimation;
 
-    private SpriteRenderer _sp;
+    protected SpriteRenderer sp;
     
     private void Start()
     {
         currentHealth = maxHealth;
-        _sp = GetSpriteRenderer();
+        sp = GetSpriteRenderer();
         InitializeMapComponents();
     }
-
-    private void Update()
+    
+    // Method called externally only
+    public void TakeDamage(int damage)
     {
-        // Change hue of object depending on how much damage it has taken (gets redder as HP drops)
-        _sp.color = new Color(
-            1,
-            (float)currentHealth / maxHealth,
-            (float)currentHealth / maxHealth);
-
+        currentHealth -= damage;
+        UpdateVisual();
+        
         // What follows needs only be executed if object is dead
         if (currentHealth > 0) return;
         
@@ -38,11 +33,9 @@ public abstract class Health : MonoBehaviour
 
         if (deathAnim) Destroy(deathAnim, 0.5f);
     }
-
-    // Method called externally only
-    public void TakeDamage(int damage) { currentHealth -= damage; }
     
     protected abstract void InitializeMapComponents();
+    protected abstract void UpdateVisual();
     protected abstract void HandleGameStateInteractions();
     protected abstract SpriteRenderer GetSpriteRenderer();
 }

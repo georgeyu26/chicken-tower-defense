@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using UnityEngine;
 
@@ -14,6 +12,15 @@ public class TowerHealth : Health
         _map = GameObject.Find("Ground").GetComponent<Tilemap>();
     }
 
+    protected override void UpdateVisual()
+    {
+        // Change hue of object tower on how much damage it has taken (gets redder as HP drops)
+        sp.color = new Color(
+            1,
+            (float)currentHealth / maxHealth,
+            (float)currentHealth / maxHealth);
+    }
+    
     protected override void HandleGameStateInteractions()
     {
         Vector3Int tilePos = Vector3Int.FloorToInt(gameObject.transform.position);

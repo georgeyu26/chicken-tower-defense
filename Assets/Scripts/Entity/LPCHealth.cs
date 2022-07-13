@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Tilemaps;
 using UnityEngine;
 
 public class LPCHealth : Health
@@ -8,6 +5,11 @@ public class LPCHealth : Health
     protected override SpriteRenderer GetSpriteRenderer()
     {
         return gameObject.GetComponent<SpriteRenderer>();
+    }
+    
+    protected override void UpdateVisual()
+    {
+        FindObjectOfType<GameManager>().LFPHealth = currentHealth > 0 ? currentHealth : 0;
     }
     
     // TODO: This should call the GameOver screen
