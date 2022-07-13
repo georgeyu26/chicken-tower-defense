@@ -23,13 +23,7 @@ public class ShopManager : MonoBehaviour
     }
 
     public void Toggle(){
-        if(showShop){
-            showShop = false;
-            shopPanel.SetActive(false);
-        }
-        else{
-            showShop = true;
-            shopPanel.SetActive(true);
-        }
+        showShop = !showShop;
+        shopPanel.SetActive(showShop);
     }
 }

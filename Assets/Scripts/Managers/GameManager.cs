@@ -7,6 +7,11 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
 
+    [SerializeField]
+    public GameObject towerManagementPanel;
+    [SerializeField]
+    public GameObject upgradePanel;
+
     private int currency;
     [SerializeField]
     private TextMeshProUGUI currencyTxt;
