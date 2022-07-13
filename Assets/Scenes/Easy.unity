@@ -10662,8 +10662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerManagementPanel: {fileID: 452493439}
-  currencyTxt: {fileID: 1339895692}
-  healthTxt: {fileID: 382525449}
+  currencyText: {fileID: 1339895692}
+  healthText: {fileID: 382525449}
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   hover: {fileID: 35816580}
   roundText: {fileID: 1217106803}
