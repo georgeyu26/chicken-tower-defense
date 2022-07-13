@@ -20,7 +20,21 @@ public class GameManager : MonoBehaviour
         }
         set{
             this.currency = value;
-            this.currencyTxt.text = value.ToString() + "<size=40> <sprite=0> </size>";
+            this.currencyTxt.text = value.ToString();
+        }
+    }
+
+    private int lfpHealth;
+    [SerializeField]
+    private TextMeshProUGUI healthTxt;
+
+    public int LFPHealth{
+        get{
+            return lfpHealth;
+        }
+        set{
+            this.lfpHealth = value;
+            this.healthTxt.text = "<size=30> <sprite=0> </size>" + value.ToString();
         }
     }
 
@@ -68,6 +82,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Currency = 100; // starting amount of money given to player
+        LFPHealth = 1000;
         levelManager = FindObjectOfType<LevelManager>();
     }
 
