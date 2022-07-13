@@ -10,6 +10,8 @@ public class TileScript : MonoBehaviour
     private GameManager gameManager;
     private Vector3Int prevPos;
     private Tile prevTile;
+
+    private int id;
     
     [SerializeField]
     public Tile badTile;
@@ -33,6 +35,8 @@ public class TileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        id = 0;
+
         if (PauseMenu.paused)
         {
             return;
@@ -56,6 +60,16 @@ public class TileScript : MonoBehaviour
                 PlaceTower(mousePosition);
             } else {
                 HoverTile(mousePosition);
+            }
+        }
+        else{
+            if (Input.GetMouseButtonUp(0)){
+                Vector3Int gridPos = map.WorldToCell(mousePosition);
+                Debug.Log("CLICKED ON: " + map.GetTile<Tile>(gridPos));
+
+                if(map.GetTile<Tile>(gridPos) != usedTile){
+                    gameManager.SelectedTile = null;
+                }
             }
         }
     }
@@ -83,6 +97,10 @@ public class TileScript : MonoBehaviour
             levelManager.Placing = false;
             gameManager.Hover.Deactivate();
             GameObject tower = (GameObject) Instantiate(gameManager.ClickedTower.TowerPrefab, gridPos, Quaternion.identity);
+
+            tower.name = tower.name + id;
+            id++;
+
             map.SetTile(gridPos, usedTile);
             // Use offscreen tile to reset
             prevPos = new Vector3Int(-11, -5, 0);
