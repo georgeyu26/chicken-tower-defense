@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 3389243187724961617}
   - component: {fileID: 1091926818747942086}
   - component: {fileID: 8019322943463317965}
-  - component: {fileID: 3258975967488082869}
+  - component: {fileID: 5156446549872716812}
   m_Layer: 6
   m_Name: Cock
   m_TagString: Chicken
@@ -279,7 +279,7 @@ MonoBehaviour:
   sleepTime: 3
   enemyLayer: Tower
   meleeAnimation: {fileID: 7021815084036882580, guid: 4a89893fdf9d85943997dacaf0106814, type: 3}
---- !u!114 &3258975967488082869
+--- !u!114 &5156446549872716812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,9 +288,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4230268722580495808}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93b379bf7041696439d530eabed9fbf8, type: 3}
+  m_Script: {fileID: 11500000, guid: e2e45da9d0b94d5bae8b26e141c45e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  maxHealth: 50
-  deathAnimation: {fileID: 0}
+  maxHealth: 100
+  deathAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
