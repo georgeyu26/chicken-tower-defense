@@ -1,173 +1,131 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField]
     public GameObject towerManagementPanel;
 
-    private int currency;
-    [SerializeField]
-    private TextMeshProUGUI currencyTxt;
+    private int _currency;
+    public TextMeshProUGUI currencyText;
 
-    public int Currency{
-        get{
-            return currency;
-        }
-        set{
-            this.currency = value;
-            this.currencyTxt.text = value.ToString();
+    public int Currency {
+        get => _currency;
+        set {
+            _currency = value;
+            currencyText.text = value.ToString();
         }
     }
 
-    private int lfpHealth;
-    [SerializeField]
-    private TextMeshProUGUI healthTxt;
+    private int _lfpHealth;
+    public TextMeshProUGUI healthText;
 
-    public int LFPHealth{
-        get{
-            return lfpHealth;
-        }
-        set{
-            this.lfpHealth = value;
-            this.healthTxt.text = "<size=30> <sprite=0> </size>" + value.ToString();
+    public int LFPHealth {
+        get => _lfpHealth;
+        set {
+            _lfpHealth = value;
+            healthText.text = "<size=30> <sprite=0> </size>" + value.ToString();
         }
     }
 
     public TowerBtn ClickedTower { get; private set; }
-    private LevelManager levelManager;
+    private LevelManager _levelManager;
 
-    [SerializeField]
-    private GameObject towerPrefab;
-    [SerializeField]
-    private Hover hover;
+    public GameObject towerPrefab;
+    public Hover hover;
 
-    public ObjectPool Pool {get; set;}
+    private ObjectPool Pool {get; set;}
 
-    private int roundNumber = 0;
-    public bool roundActive {
-        get {return activeChickens.Count > 0;}
-    }
-
-    [SerializeField]
-    private TextMeshProUGUI roundText;
-
-    [SerializeField]
-    private GameObject nextRoundButton;
-
-    private List<GameObject> activeChickens = new List<GameObject>();
-
-    private Range selectedTower;
-    public GameObject TowerPreFab{
-        get {
-            return towerPrefab;
-        }
-    }
-
-    public Hover Hover {
-        get {
-            return hover;
-        }
-    }
+    private int _roundNumber = 0;
+    
+    public TextMeshProUGUI roundText;
+    public GameObject nextRoundButton;
+    
+    private Range _selectedTower;
+    
+    public GameObject TowerPreFab => towerPrefab;
+    public Hover Hover => hover;
 
     private void Awake() {
-        Pool = GetComponent<ObjectPool>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Currency = 100; // starting amount of money given to player
-        LFPHealth = 1000;
-        levelManager = FindObjectOfType<LevelManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        _roundInProgress = false;
         
+        Pool = GetComponent<ObjectPool>();
+        Currency = 100; // starting amount of money given to player
+        LFPHealth = 100;
+        _levelManager = FindObjectOfType<LevelManager>();
     }
 
-    public void SelectTower(Range tower){
-        selectedTower = tower;
-        selectedTower.Select();
-    }
-
-    public void DisableTower(Range tower){
-        selectedTower = tower;
-        selectedTower.Disable();
-    }
-
-    public void PickTower(TowerBtn tower){
-        if (PauseMenu.paused)
+    private void Update()
+    {
+        if (_roundInProgress && AllChickensDead())
         {
-            return;
-        }
-        if (Currency >= tower.Cost){
-            this.ClickedTower = tower;
-            levelManager.Placing = true;
-            hover.Activate(tower.Sprite);
+            FinishRound();
         }
     }
 
+    public void SelectTower(Range tower)
+    {
+        _selectedTower = tower;
+        _selectedTower.Select();
+    }
+
+    public void DisableTower(Range tower)
+    {
+        _selectedTower = tower;
+        _selectedTower.Disable();
+    }
+
+    public void PickTower(TowerBtn tower)
+    {
+        if (PauseMenu.paused) return;
+        if (Currency < tower.Cost) return;
+        ClickedTower = tower;
+        _levelManager.Placing = true;
+        hover.Activate(tower.Sprite);
+    }
+
+    private bool _roundInProgress;
+    
     public void StartRound() {
-        roundNumber++;
-        roundText.text = string.Format("Round {0}", roundNumber);
+        _roundNumber++;
+        roundText.text = $"Round {_roundNumber}";
         SpawnRound();
         Currency += 1000;
-        // TODO: uncomment this when implemented
-        //nextRoundButton.SetActive(false);
+        _roundInProgress = true;
+        nextRoundButton.SetActive(false);
     }
 
-    // TODO: need to call this when chicken is killed or exits
-    public void RemoveChicken(GameObject chicken) {
-        activeChickens.Remove(chicken);
-        if (!roundActive) {
-            nextRoundButton.SetActive(true);
-        }
+    private void FinishRound()
+    {
+        nextRoundButton.SetActive(true);
     }
 
-    private IEnumerator spawn(string s) {
-        for (int i = 0; i < s.Length; i++) {
-            if (s[i] == 'a') {
-                activeChickens.Add(Pool.GetObject("Chicken"));
-            } else if (s[i] == 'b') {
-                activeChickens.Add(Pool.GetObject("Cock"));
-            } else {
-                yield return new WaitForSeconds(s[i] - '0');
+    private bool AllChickensDead() => GameObject.FindGameObjectsWithTag("Chicken").Length == 0;
+    
+
+    private IEnumerator Spawn(string s)
+    {
+        foreach (var c in s)
+            switch (c) {
+                case 'a': Pool.GetObject("Chicken"); break;
+                case 'b': Pool.GetObject("Cock");   break;
+                default:  yield return new WaitForSeconds(c - '0'); break;
             }
-        }
-        // activeChickens.Add(Pool.GetObject("Chicken"));
-        // yield return new WaitForSeconds(1);
-        // activeChickens.Add(Pool.GetObject("Chicken"));
     }
 
-    private void SpawnRound() {
-        string s = "";
-        switch (roundNumber) {
-            case 1:
-                s = "a2a2a2a2a";
-                break;
-            case 2:
-                s = "a1a1a1a1a1a1a1a";
-                break;
-            case 3:
-                s = "b2b2b2b2b";
-                break;
-            case 4:
-                s = "b2b2b2b2b1a1a1a1a1a";
-                break;
-            case 5:
-                s = "b1b1b1b1b1b1b1b1b1b";
-                break;
-            case 6:
-                s = "aaaaaaaaaa";
-                break;
-        }
-        StartCoroutine(spawn(s));
+    private void SpawnRound()
+    {
+        string s = _roundNumber switch
+        {
+            1 => "a2a2a2a2a",
+            2 => "a1a1a1a1a1a1a1a",
+            3 => "b2b2b2b2b",
+            4 => "b2b2b2b2b1a1a1a1a1a",
+            5 => "b1b1b1b1b1b1b1b1b1b",
+            6 => "aaaaaaaaaa",
+            _ => ""
+        };
+        StartCoroutine(Spawn(s));
     }
 }
