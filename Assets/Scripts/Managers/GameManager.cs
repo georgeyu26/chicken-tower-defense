@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         roundNumber++;
         roundText.text = string.Format("Round {0}", roundNumber);
         SpawnRound();
-        currency += 1000;
+        Currency += 1000;
         // TODO: uncomment this when implemented
         //nextRoundButton.SetActive(false);
     }
