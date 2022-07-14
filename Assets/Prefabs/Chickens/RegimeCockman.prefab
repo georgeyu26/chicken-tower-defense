@@ -143,6 +143,7 @@ MonoBehaviour:
   waypoints: []
   maxSpeed: 1
   brakingFactor: 3.5
+  acceleration: 0
 --- !u!114 &1949485077254547429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e45da9d0b94d5bae8b26e141c45e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 30
+  currentHealth: 0
   maxHealth: 30
   deathAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
 --- !u!1 &7324979684284207645
@@ -218,7 +219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7324979684284207645}
   m_LocalRotation: {x: 0, y: 0, z: -0.03141076, w: 0.99950653}
-  m_LocalPosition: {x: 0.935, y: -0.153, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
