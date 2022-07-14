@@ -11,6 +11,7 @@ public class FollowWaypoints : MonoBehaviour
     private CircleCollider2D _collider;
     public float maxSpeed;
     public float brakingFactor;
+    public float acceleration;
     
     private void Awake()
     {
@@ -19,7 +20,7 @@ public class FollowWaypoints : MonoBehaviour
     }
     
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
         // Change waypoint if last waypoint was reached
         if (Vector2.Distance(transform.position, waypoints[_currentWaypoint].transform.position) < 
@@ -34,8 +35,10 @@ public class FollowWaypoints : MonoBehaviour
         toFace.Normalize();
         
         // Calculate the actual velocity of the chicken (factoring in stopping speed, etc.)
-        var newHeading = maxSpeed * toFace - 
-                         (1 + brakingFactor * 1.0f/180 * Vector2.Angle(_body.velocity, toFace)) * _body.velocity;
+        var accelerationFactor = _body.velocity.magnitude < maxSpeed/2     ? acceleration  : 0;
+        var swingAroundFactor  = Vector2.Angle(_body.velocity, toFace) > 5 ? brakingFactor : 0;
+        
+        var newHeading = maxSpeed * (1 + accelerationFactor) * toFace - (1 + swingAroundFactor) * _body.velocity;
         
         // Move chicken towards current facing direction (and don't ever rotate the rigidbody)
         if (Time.timeScale != 0) _body.AddForce(newHeading, ForceMode2D.Force);

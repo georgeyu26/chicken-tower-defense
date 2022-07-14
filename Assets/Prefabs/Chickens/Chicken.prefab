@@ -142,7 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   maxSpeed: 1
-  brakingFactor: 3.5
+  brakingFactor: 10
+  acceleration: 5
 --- !u!114 &7811831311146795473
 MonoBehaviour:
   m_ObjectHideFlags: 0

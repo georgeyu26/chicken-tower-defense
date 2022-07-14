@@ -20,7 +20,7 @@ public class FaceRightDirection : MonoBehaviour
         _sp = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Have the chicken face the correct direction (left or right)
         // TODO: add a sensitivity parameter so chickens don't shake erratically 

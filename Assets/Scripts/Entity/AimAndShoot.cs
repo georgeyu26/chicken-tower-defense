@@ -11,13 +11,13 @@ public class AimAndShoot : MonoBehaviour
 
     private float _cooldownTime;
     private Renderer _renderer;
+    
     private void Awake()
     {
         _renderer = transform.GetComponent<Renderer>();
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
         // Check that the turret is not in cooldown (if it is, don't do anything)
         if (_cooldownTime > 0)
