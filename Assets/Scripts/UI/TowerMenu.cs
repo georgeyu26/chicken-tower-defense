@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class TowerMenu : MonoBehaviour
 {
     private bool managementEnable;
-    private bool upgradeEnable;
 
     // Start is called before the first frame update
     private GameManager gameManager;
@@ -15,7 +14,6 @@ public class TowerMenu : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
 
         managementEnable = false;
-        upgradeEnable = false;
     }
 
     // Update is called once per frame
@@ -25,6 +23,12 @@ public class TowerMenu : MonoBehaviour
     }
 
     void OnMouseDown(){
+        if(gameManager.LastTower != null){
+            TowerMenu last = (TowerMenu) gameManager.LastTower.GetComponent(typeof(TowerMenu));
+            last.Toggle();
+        }
+        
+        gameManager.LastTower = gameObject;
         Toggle();
     }
     /* Towers to add
@@ -55,10 +59,5 @@ public class TowerMenu : MonoBehaviour
     public void Toggle(){
         Range range = gameObject.transform.GetChild(0).GetComponent<Range>();
         gameManager.SelectTower(range);
-
-        // Add logic for showing tower upgrades here
-        managementEnable = !managementEnable;
-
-        gameManager.towerManagementPanel.SetActive(managementEnable);
     }
 }
