@@ -10685,8 +10685,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefabs:
+  - {fileID: 418747872070782316, guid: ddbdd410c767044308331e6484a8710e, type: 3}
   - {fileID: 8586663157656856128, guid: 78cad837ba3bcb54ba536c8559f9f44b, type: 3}
   - {fileID: 4230268722580495808, guid: 48789ae6e8f082e4283e1d927af74418, type: 3}
+  - {fileID: 2505273254040894596, guid: 31b65cbfca9304aa083fded37fb5ccb8, type: 3}
+  - {fileID: 8362523799101181906, guid: 5a38d54abcc3c490a87dc6662e458c1a, type: 3}
   waypoints:
   - {fileID: 1192674583}
   - {fileID: 903929085}

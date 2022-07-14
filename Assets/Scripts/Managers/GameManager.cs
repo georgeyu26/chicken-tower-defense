@@ -117,9 +117,12 @@ public class GameManager : MonoBehaviour
     {
         foreach (var c in s)
             switch (c) {
-                case 'a': Pool.GetObject("Chicken"); break;
-                case 'b': Pool.GetObject("Cock");   break;
-                default:  yield return new WaitForSeconds(c - '0'); break;
+                case 'a': Pool.GetObject("Chick"); break;
+                case 'b': Pool.GetObject("Chicken"); break;
+                case 'c': Pool.GetObject("Cock"); break;
+                case 'd': Pool.GetObject("Undead"); break;
+                case 'e': Pool.GetObject("RegimeCockman"); break;
+                default: yield return new WaitForSeconds(c - '0'); break;
             }
     }
 
@@ -127,12 +130,11 @@ public class GameManager : MonoBehaviour
     {
         string s = _roundNumber switch
         {
-            1 => "a2a2a2a2a",
-            2 => "a1a1a1a1a1a1a1a",
-            3 => "b2b2b2b2b",
-            4 => "b2b2b2b2b1a1a1a1a1a",
-            5 => "b1b1b1b1b1b1b1b1b1b",
-            6 => "aaaaaaaaaa",
+            1 => "a2b2c2d2e",
+            2 => "b2b2b2b2b",
+            3 => "c2c2c2c2c",
+            4 => "d2d2d2d2d",
+            5 => "e2e2e2e2e",
             _ => ""
         };
         StartCoroutine(Spawn(s));
