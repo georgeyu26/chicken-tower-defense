@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -194,5 +193,19 @@ public class GameManager : MonoBehaviour
             _  => "a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b"
         };
         StartCoroutine(Spawn(s));
+    }
+
+    public float CalculateDamageModifier(ObjectType attack, ObjectType victim)
+    {
+        // Row corresponds to type of attack, column corresponds to type of victim
+        float[,] multiplierSheet =
+        {//            Normal  Fire    Nature  Undead
+         /* Normal */ {1.0f,   1.0f,   1.0f,   0.0f},
+         /* Fire   */ {2.0f,   0.0f,   2.0f,   1.5f},
+         /* Nature */ {0.5f,   0.0f,   1.0f,   0.0f},
+         /* Undead */ {1.0f,   0.5f,   1.5f,   1.0f},
+        };
+
+        return multiplierSheet[(int)attack,(int)victim];
     }
 }

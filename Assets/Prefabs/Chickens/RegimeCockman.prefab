@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3389979778257158023}
   - component: {fileID: 1949485077254547429}
   - component: {fileID: 1186297532223767507}
+  - component: {fileID: 555233380331685629}
   m_Layer: 6
   m_Name: RegimeCockman
   m_TagString: Chicken
@@ -174,6 +175,19 @@ MonoBehaviour:
   currentHealth: 1000
   maxHealth: 1000
   deathAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
+--- !u!114 &555233380331685629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483564877584793492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78133ebd64442cc8fa4c4e527fb45d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1 &7324979684284207645
 GameObject:
   m_ObjectHideFlags: 0

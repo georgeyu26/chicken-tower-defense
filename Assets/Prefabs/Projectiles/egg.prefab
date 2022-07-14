@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6150356520237547895}
   - component: {fileID: 9211293326087084761}
   - component: {fileID: 8728282519826476831}
+  - component: {fileID: 6208406324182917431}
   m_Layer: 8
   m_Name: egg
   m_TagString: Untagged
@@ -140,3 +141,16 @@ MonoBehaviour:
   projectileStrength: 1
   toHit: Tower
   hitAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
+--- !u!114 &6208406324182917431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568809304593525914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78133ebd64442cc8fa4c4e527fb45d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0

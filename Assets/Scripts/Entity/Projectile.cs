@@ -22,24 +22,35 @@ public class Projectile : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Only hit the item this projectile has been assigned to hit
         if (!collision.gameObject.CompareTag(toHit)) return;
         
         // Only create explosion animation if it was passed in
         GameObject explosion = null;
         if (hitAnimation) 
         {
-            explosion = Instantiate(hitAnimation, 1.0f/2 * (transform.position + collision.transform.position), Quaternion.identity);
+            explosion = Instantiate(
+                hitAnimation, 
+                1.0f/2 * (transform.position + collision.transform.position), 
+                Quaternion.identity);
         }
         
-        // Reduce HP of target
-        collision.gameObject.SendMessage("TakeDamage", projectileStrength);
-        
-        // Get rid of the bullet itself since it has collided with target
-        Destroy(gameObject);
-
-        if (explosion)
+        // Calculate type effectiveness: if no effectiveness is found, just presume normal effectiveness
+        // NOTE: this try-catch _should technically_ never catch since types are enums
+        var multiplier = 1.0f;
+        try
         {
-            Destroy(explosion, 0.5f);
+            multiplier = Typing.multiplier(
+                this.GetComponent<Typing>().type, 
+                collision.gameObject.GetComponent<Typing>().type);
         }
+        catch { /* ignored */ }
+
+        // Damage the victim
+        collision.gameObject.SendMessage("TakeDamage", multiplier * projectileStrength);
+        
+        // Get rid of the bullet since it has collided with target and explosion animation
+        Destroy(gameObject);
+        if (explosion) Destroy(explosion, 0.5f);
     }
 }
