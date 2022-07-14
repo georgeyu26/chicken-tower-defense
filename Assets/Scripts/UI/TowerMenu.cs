@@ -19,7 +19,10 @@ public class TowerMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(gameManager.LastTower == null){
+            managementEnable = false;
+            gameManager.towerManagementPanel.SetActive(managementEnable);
+        }
     }
 
     void OnMouseDown(){
@@ -59,5 +62,8 @@ public class TowerMenu : MonoBehaviour
     public void Toggle(){
         Range range = gameObject.transform.GetChild(0).GetComponent<Range>();
         gameManager.SelectTower(range);
+
+        managementEnable = !managementEnable;
+        gameManager.towerManagementPanel.SetActive(managementEnable);
     }
 }

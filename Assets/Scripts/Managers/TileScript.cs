@@ -12,6 +12,7 @@ public class TileScript : MonoBehaviour
     private Tile prevTile;
 
     private int id;
+    private bool managementEnable;
     
     [SerializeField]
     public Tile badTile;
@@ -36,6 +37,7 @@ public class TileScript : MonoBehaviour
     void Start()
     {
         id = 0;
+        managementEnable = false;
 
         if (PauseMenu.paused)
         {
@@ -65,10 +67,15 @@ public class TileScript : MonoBehaviour
         else{
             if (Input.GetMouseButtonUp(0)){
                 Vector3Int gridPos = map.WorldToCell(mousePosition);
-                Debug.Log("CLICKED ON: " + map.GetTile<Tile>(gridPos));
-
-                if(map.GetTile<Tile>(gridPos) != usedTile){
-                    gameManager.SelectedTile = null;
+                Tile currTile = map.GetTile<Tile>(gridPos);
+                
+                if(currTile != usedTile){
+                    if(gameManager.LastTower != null){
+                        TowerMenu last = (TowerMenu) gameManager.LastTower.GetComponent(typeof(TowerMenu));
+                        last.Toggle();
+                    }
+                    
+                    gameManager.LastTower = null;
                 }
             }
         }
