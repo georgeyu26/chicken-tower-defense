@@ -139,4 +139,4 @@ MonoBehaviour:
   speed: 2
   projectileStrength: 10
   toHit: Chicken
-  hitAnimation: {fileID: 0}
+  hitAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
