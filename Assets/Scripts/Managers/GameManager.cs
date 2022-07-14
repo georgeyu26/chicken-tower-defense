@@ -30,13 +30,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private GameObject _lastTower;
-    public GameObject LastTower {
-        get => _lastTower;
-        set {
-            _lastTower = value;
-        }
-    }
+    public GameObject LastTower { get; set; }
 
     public TowerBtn ClickedTower { get; private set; }
     private LevelManager _levelManager;
@@ -44,7 +38,7 @@ public class GameManager : MonoBehaviour
     public GameObject towerPrefab;
     public Hover hover;
 
-    private ObjectPool Pool {get; set;}
+    private ObjectPool Pool { get; set; }
 
     private int _roundNumber = 0;
     
@@ -58,7 +52,7 @@ public class GameManager : MonoBehaviour
     public Hover Hover => hover;
 
     private void Awake() {
-        _roundInProgress = false;
+        RoundInProgress = false;
         
         Pool = GetComponent<ObjectPool>();
         Currency = 1000; // starting amount of money given to player
@@ -68,10 +62,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (_roundInProgress && AllChickensDead())
-        {
-            FinishRound();
-        }
+        if (RoundInProgress && !IsCurrentlySpawning && AllChickensDead()) FinishRound();
     }
 
     public void SelectTower(Range tower)
@@ -95,39 +86,44 @@ public class GameManager : MonoBehaviour
         hover.Activate(tower.Sprite);
     }
 
-    private bool _roundInProgress;
-    public bool RoundInProgress {
-        get => _roundInProgress;
-    }
-    
+    public bool RoundInProgress { get; set; }
+    public bool IsCurrentlySpawning { get; set; }
+
     public void StartRound() {
+        // Augment the round number
         _roundNumber++;
         roundText.text = $"Round {_roundNumber}";
+        
+        // Start spawning chickens
+        RoundInProgress = true;
+        IsCurrentlySpawning = true;
         SpawnRound();
-        Currency += 1000;
-        _roundInProgress = true;
+
+        // Turn off UI elements that should not be accessible during a round
         nextRoundButton.SetActive(false);
-
-
-        ShopManager shop = (ShopManager) shopButton.GetComponent(typeof(ShopManager));
-        shop.DeactivateShop();
+        shopButton.GetComponent<ShopManager>().DeactivateShop();
         shopButton.SetActive(false);
     }
 
     private void FinishRound()
     {
-        _roundInProgress = false;
+        // Reward the player for finishing the round
+        Currency += 1000;
         
+        // Turn off round-in-progress indicators
+        RoundInProgress = false;
+        IsCurrentlySpawning = false;
+
+        // Reactivate UI elements
         nextRoundButton.SetActive(true);
         shopButton.SetActive(true);
     }
 
     private bool AllChickensDead() => GameObject.FindGameObjectsWithTag("Chicken").Length == 0;
-    
 
     private IEnumerator Spawn(string s)
     {
-        foreach (var c in s)
+        foreach (var c in s) {
             switch (c) {
                 case 'a': Pool.GetObject("Chick"); break;
                 case 'b': Pool.GetObject("Chicken"); break;
@@ -136,21 +132,24 @@ public class GameManager : MonoBehaviour
                 case 'e': Pool.GetObject("RegimeCockman"); break;
                 default: yield return new WaitForSeconds(c - '0'); break;
             }
+        }
+        
+        FindObjectOfType<GameManager>().IsCurrentlySpawning = false;
     }
 
     private void SpawnRound()
     {
         string s = _roundNumber switch
         {
-            1 => "a",
-            2 => "a8a8a",
-            3 => "a7a7a7a",
-            4 => "a6a6a6a6a",
-            5 => "a5a5a5a5a5a",
-            6 => "a4a4a4a4a4a4a",
-            7 => "a3a3a3a3a3a3a3a",
-            8 => "a2a2a2a2a2a2a2a2a",
-            9 => "a1a1a1a1a1a1a1a1a1a",
+            1  => "a",
+            2  => "a8a8a",
+            3  => "a7a7a7a",
+            4  => "a6a6a6a6a",
+            5  => "a5a5a5a5a5a",
+            6  => "a4a4a4a4a4a4a",
+            7  => "a3a3a3a3a3a3a3a",
+            8  => "a2a2a2a2a2a2a2a2a",
+            9  => "a1a1a1a1a1a1a1a1a1a",
             10 => "b",
             11 => "a9a9b",
             12 => "a8a8b8b",
@@ -192,7 +191,7 @@ public class GameManager : MonoBehaviour
             48 => "e2a2b2e2c2d2e2b2e2e",
             49 => "e1e1e1e1e1e1e1e1e1e",
             50 => "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e",
-            _ => ""
+            _  => "a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b"
         };
         StartCoroutine(Spawn(s));
     }

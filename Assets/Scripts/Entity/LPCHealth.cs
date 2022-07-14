@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LPCHealth : Health
 {
@@ -11,9 +12,11 @@ public class LPCHealth : Health
     {
         FindObjectOfType<GameManager>().LFPHealth = currentHealth > 0 ? currentHealth : 0;
     }
-    
-    // TODO: This should call the GameOver screen
-    protected override void HandleGameStateInteractions() {}
+
+    protected override void HandleGameStateInteractions()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
 
     // LPC doesn't need to interact with map since its destruction is end of game anyway
     protected override void InitializeMapComponents() {}

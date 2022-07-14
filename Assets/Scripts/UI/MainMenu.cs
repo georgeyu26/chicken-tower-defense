@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Easy");
     }
 
     public void QuitGame()
@@ -16,13 +15,4 @@ public class MainMenu : MonoBehaviour
         Debug.Log("GAME IS QUITTING");
         Application.Quit();
     }
-
-    // public void Start()
-    // {
-    // }
-    //
-    // // Update is called once per frame
-    // void Update()
-    // {
-    // }
 }
