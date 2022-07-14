@@ -12,7 +12,6 @@ public class TileScript : MonoBehaviour
     private Tile prevTile;
 
     private int id;
-    private bool managementEnable;
     
     [SerializeField]
     public Tile badTile;
@@ -37,7 +36,6 @@ public class TileScript : MonoBehaviour
     void Start()
     {
         id = 0;
-        managementEnable = false;
 
         if (PauseMenu.paused)
         {

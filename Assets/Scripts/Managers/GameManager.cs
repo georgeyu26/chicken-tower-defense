@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -26,6 +27,14 @@ public class GameManager : MonoBehaviour
         set {
             _lfpHealth = value;
             healthText.text = "<size=30> <sprite=0> </size>" + value.ToString();
+        }
+    }
+
+    private GameObject _lastTower;
+    public GameObject LastTower {
+        get => _lastTower;
+        set {
+            _lastTower = value;
         }
     }
 
