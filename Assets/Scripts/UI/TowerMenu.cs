@@ -19,7 +19,7 @@ public class TowerMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameManager.LastTower == null){
+        if(gameManager.LastTower == null || gameManager.RoundInProgress){
             managementEnable = false;
             gameManager.towerManagementPanel.SetActive(managementEnable);
         }

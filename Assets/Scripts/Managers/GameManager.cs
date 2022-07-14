@@ -116,6 +116,8 @@ public class GameManager : MonoBehaviour
 
     private void FinishRound()
     {
+        _roundInProgress = false;
+        
         nextRoundButton.SetActive(true);
         shopButton.SetActive(true);
     }
