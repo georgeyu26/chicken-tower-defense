@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2505273254040894593}
   - component: {fileID: 2505273254040894598}
   - component: {fileID: 2505273254040894599}
-  - component: {fileID: 4144511593068829461}
   - component: {fileID: 3466230869414351525}
   - component: {fileID: 5012809553954771170}
   m_Layer: 6
@@ -103,7 +102,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 8
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -127,7 +126,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.5
 --- !u!114 &2505273254040894599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,24 +140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  maxSpeed: 1
-  brakingFactor: 3.5
---- !u!114 &4144511593068829461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2505273254040894596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: add13ff5961d4494686035fdea0d8012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radiusOfAttack: 2.5
-  sleepTime: 5
-  enemyLayer: Tower
-  bulletToFire: {fileID: 1568809304593525914, guid: a3492032a899ee448a4ed967467a8589, type: 3}
+  maxSpeed: 1.5
+  brakingFactor: 75
+  acceleration: 75
 --- !u!114 &3466230869414351525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,9 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d208017d0967444f887bbf1f586aa13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusOfAttack: 1.5
-  attackStrength: 2
-  sleepTime: 1.5
+  radiusOfAttack: 2
+  attackStrength: 1
+  sleepTime: 0.1
   enemyLayer: Tower
   meleeAnimation: {fileID: 7021815084036882580, guid: 4a89893fdf9d85943997dacaf0106814, type: 3}
 --- !u!114 &5012809553954771170
@@ -188,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e45da9d0b94d5bae8b26e141c45e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 30
+  currentHealth: 800
+  maxHealth: 800
   deathAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
 --- !u!1 &2505273254137030606
 GameObject:

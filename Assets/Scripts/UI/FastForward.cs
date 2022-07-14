@@ -19,7 +19,7 @@ public class FastForward : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 2f;
+            Time.timeScale = 10f;
             FastForwarded = true;
         }
     }
