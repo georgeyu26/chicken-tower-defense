@@ -10657,6 +10657,7 @@ MonoBehaviour:
   hover: {fileID: 35816580}
   roundText: {fileID: 1217106803}
   nextRoundButton: {fileID: 861206549}
+  shopButton: {fileID: 378358589}
 --- !u!4 &2099456393
 Transform:
   m_ObjectHideFlags: 0

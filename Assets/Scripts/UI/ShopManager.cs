@@ -19,11 +19,16 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Toggle(){
         showShop = !showShop;
         shopPanel.SetActive(showShop);
+    }
+
+    public void DeactivateShop(){
+        showShop = false;
+        shopPanel.SetActive(false);
     }
 }
