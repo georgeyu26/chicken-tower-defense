@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     
     public TextMeshProUGUI roundText;
     public GameObject nextRoundButton;
+    public GameObject shopButton;
     
     private Range _selectedTower;
     
@@ -60,7 +61,7 @@ public class GameManager : MonoBehaviour
         _roundInProgress = false;
         
         Pool = GetComponent<ObjectPool>();
-        Currency = 100; // starting amount of money given to player
+        Currency = 1000; // starting amount of money given to player
         LFPHealth = 100;
         _levelManager = FindObjectOfType<LevelManager>();
     }
@@ -95,6 +96,9 @@ public class GameManager : MonoBehaviour
     }
 
     private bool _roundInProgress;
+    public bool RoundInProgress {
+        get => _roundInProgress;
+    }
     
     public void StartRound() {
         _roundNumber++;
@@ -103,11 +107,17 @@ public class GameManager : MonoBehaviour
         Currency += 1000;
         _roundInProgress = true;
         nextRoundButton.SetActive(false);
+
+
+        ShopManager shop = (ShopManager) shopButton.GetComponent(typeof(ShopManager));
+        shop.DeactivateShop();
+        shopButton.SetActive(false);
     }
 
     private void FinishRound()
     {
         nextRoundButton.SetActive(true);
+        shopButton.SetActive(true);
     }
 
     private bool AllChickensDead() => GameObject.FindGameObjectsWithTag("Chicken").Length == 0;
