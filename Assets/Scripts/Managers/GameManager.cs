@@ -142,11 +142,11 @@ public class GameManager : MonoBehaviour
     {
         string s = _roundNumber switch
         {
-            1 => "a2b2c2d2e",
-            2 => "b2b2b2b2b",
-            3 => "c2c2c2c2c",
-            4 => "d2d2d2d2d",
-            5 => "e2e2e2e2e",
+            1 => "a5b5c5d5e",
+            2 => "b5b5b5b5b",
+            3 => "c5c5c5c5c",
+            4 => "d5d5d5d5d",
+            5 => "e5e5e5e5e",
             _ => ""
         };
         StartCoroutine(Spawn(s));
