@@ -105,7 +105,7 @@ MonoBehaviour:
   radiusOfAttack: 2.5
   sleepTime: 0.2
   enemyLayer: Chicken
-  bulletToFire: {fileID: 5676414158055736111, guid: 1a204cdef1b7a644d9addb8be7c34bae, type: 3}
+  bulletToFire: {fileID: 1788761265261705164, guid: f315b51fa482f4132a148aa0e8136047, type: 3}
 --- !u!50 &1416709322461475575
 Rigidbody2D:
   serializedVersion: 4
