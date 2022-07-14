@@ -11,10 +11,15 @@ public class LPCHealth : Health
     protected override void UpdateVisual()
     {
         FindObjectOfType<GameManager>().LFPHealth = currentHealth > 0 ? currentHealth : 0;
+        Handheld.Vibrate();
     }
 
     protected override void HandleGameStateInteractions()
     {
+        for (int i = 0; i < 20; i++)
+        {
+            Handheld.Vibrate();
+        }
         SceneManager.LoadScene("GameOver");
     }
 
