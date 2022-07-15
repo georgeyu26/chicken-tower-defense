@@ -31,4 +31,19 @@ public class ShopManager : MonoBehaviour
         showShop = false;
         shopPanel.SetActive(false);
     }
+
+    public void Sell()
+    {
+
+    }
+
+    public void Upgrade()
+    {
+
+    }
+
+    public void Repair()
+    {
+
+    }
 }
