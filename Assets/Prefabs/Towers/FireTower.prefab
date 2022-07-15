@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: -5095851554190267424}
   - component: {fileID: 4170808590679854835}
   - component: {fileID: 843508197511223592}
+  - component: {fileID: 6487233004751964535}
   m_Layer: 7
   m_Name: FireTower
   m_TagString: Tower
@@ -278,3 +279,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236834f5ed76846f5a69e8009aa0831c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6487233004751964535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7628305689298638356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd2aa6697d084c7da8ab68fd111310d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 50

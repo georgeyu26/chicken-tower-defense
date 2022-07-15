@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3511793176392111220}
   - component: {fileID: 8764769011376177256}
   - component: {fileID: 166419294742816444}
+  - component: {fileID: 7140896598975629424}
   m_Layer: 7
   m_Name: SquirrelTower
   m_TagString: Tower
@@ -278,3 +279,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236834f5ed76846f5a69e8009aa0831c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7140896598975629424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6928415089055721856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd2aa6697d084c7da8ab68fd111310d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 20

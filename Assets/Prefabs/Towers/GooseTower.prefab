@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2240372671482506487}
   - component: {fileID: 6199684965201279211}
   - component: {fileID: 3306837488930233919}
+  - component: {fileID: -7342848660124491431}
   m_Layer: 7
   m_Name: GooseTower
   m_TagString: Tower
@@ -181,6 +182,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236834f5ed76846f5a69e8009aa0831c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7342848660124491431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5732429809193341187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd2aa6697d084c7da8ab68fd111310d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 40
 --- !u!1 &8752863325662731302
 GameObject:
   m_ObjectHideFlags: 0
