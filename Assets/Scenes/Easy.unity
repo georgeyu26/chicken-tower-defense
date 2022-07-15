@@ -1337,6 +1337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopPanel: {fileID: 655054258}
+  goodTile: {fileID: 11400000, guid: aa143d07d48b2ff4a8b61c59fdac70a5, type: 2}
 --- !u!114 &378358592
 MonoBehaviour:
   m_ObjectHideFlags: 0
