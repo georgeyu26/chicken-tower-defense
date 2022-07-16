@@ -69,15 +69,22 @@ public class TowerMenu : MonoBehaviour
 
         if(managementEnable){
             TextMeshProUGUI sellValue = GameObject.Find("SellValue").GetComponent<TextMeshProUGUI>();
-            sellValue.text = "+" + (gameManager.LastTower.GetComponent<ShopData>().cost/2).ToString();
-
-            Debug.Log(gameManager.LastTower.GetComponent<ShopData>().repairCost.ToString());
+            sellValue.text = "+" + (gameManager.LastTower.GetComponent<ShopData>().cost/2).ToString();  
 
             TextMeshProUGUI repairCost = GameObject.Find("RepairCost").GetComponent<TextMeshProUGUI>();
             repairCost.text = "-" + gameManager.LastTower.GetComponent<ShopData>().repairCost.ToString();
 
             TextMeshProUGUI upgradeCost = GameObject.Find("UpgradeCost").GetComponent<TextMeshProUGUI>();
             upgradeCost.text = "-" + gameManager.LastTower.GetComponent<ShopData>().upgradeCost.ToString();
+
+            Button sellBtn = GameObject.Find("Sell").GetComponent<Button>();
+            sellBtn.interactable = gameManager.Currency > gameManager.LastTower.GetComponent<ShopData>().cost/2;
+
+            Button repairBtn = GameObject.Find("Repair").GetComponent<Button>();
+            repairBtn.interactable = gameManager.Currency > gameManager.LastTower.GetComponent<ShopData>().repairCost;
+
+            Button upgradeBtn = GameObject.Find("Upgrade").GetComponent<Button>();
+            upgradeBtn.interactable = gameManager.Currency > gameManager.LastTower.GetComponent<ShopData>().upgradeCost;
         }
     }
 }
