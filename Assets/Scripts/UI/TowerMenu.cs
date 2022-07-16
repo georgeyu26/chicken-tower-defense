@@ -77,9 +77,6 @@ public class TowerMenu : MonoBehaviour
             TextMeshProUGUI upgradeCost = GameObject.Find("UpgradeCost").GetComponent<TextMeshProUGUI>();
             upgradeCost.text = "-" + gameManager.LastTower.GetComponent<ShopData>().upgradeCost.ToString();
 
-            Button sellBtn = GameObject.Find("Sell").GetComponent<Button>();
-            sellBtn.interactable = gameManager.Currency > gameManager.LastTower.GetComponent<ShopData>().cost/2;
-
             Button repairBtn = GameObject.Find("Repair").GetComponent<Button>();
             repairBtn.interactable = gameManager.Currency > gameManager.LastTower.GetComponent<ShopData>().repairCost;
 
