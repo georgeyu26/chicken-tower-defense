@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3647776075841543024}
   - component: {fileID: 8899485256183697260}
   - component: {fileID: 30638155734493624}
+  - component: {fileID: -1612007710147988270}
   m_Layer: 7
   m_Name: WatermelonTower
   m_TagString: Tower
@@ -278,3 +279,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236834f5ed76846f5a69e8009aa0831c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1612007710147988270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063131419686823556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd2aa6697d084c7da8ab68fd111310d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 50

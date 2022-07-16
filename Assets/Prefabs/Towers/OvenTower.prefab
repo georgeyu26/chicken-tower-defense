@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5675583747565646577}
   - component: {fileID: 566726684740593389}
   - component: {fileID: 8948900292875108409}
+  - component: {fileID: 9077961729937401836}
   m_Layer: 7
   m_Name: OvenTower
   m_TagString: Tower
@@ -181,6 +182,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236834f5ed76846f5a69e8009aa0831c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9077961729937401836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2186903064038870789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd2aa6697d084c7da8ab68fd111310d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 150
 --- !u!1 &2930916038600000032
 GameObject:
   m_ObjectHideFlags: 0

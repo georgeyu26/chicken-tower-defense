@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3177112453633570679}
   - component: {fileID: 7280505588509811563}
   - component: {fileID: 2225911604838974911}
+  - component: {fileID: 7540487455041253818}
   m_Layer: 7
   m_Name: TurretTower
   m_TagString: Tower
@@ -278,3 +279,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236834f5ed76846f5a69e8009aa0831c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7540487455041253818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974996107611146883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd2aa6697d084c7da8ab68fd111310d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 400
