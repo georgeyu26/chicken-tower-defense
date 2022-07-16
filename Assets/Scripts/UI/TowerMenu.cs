@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TowerMenu : MonoBehaviour
 {
@@ -65,5 +66,18 @@ public class TowerMenu : MonoBehaviour
 
         managementEnable = !managementEnable;
         gameManager.towerManagementPanel.SetActive(managementEnable);
+
+        if(managementEnable){
+            TextMeshProUGUI sellValue = GameObject.Find("SellValue").GetComponent<TextMeshProUGUI>();
+            sellValue.text = "+" + (gameManager.LastTower.GetComponent<ShopData>().cost/2).ToString();
+
+            Debug.Log(gameManager.LastTower.GetComponent<ShopData>().repairCost.ToString());
+
+            TextMeshProUGUI repairCost = GameObject.Find("RepairCost").GetComponent<TextMeshProUGUI>();
+            repairCost.text = "-" + gameManager.LastTower.GetComponent<ShopData>().repairCost.ToString();
+
+            TextMeshProUGUI upgradeCost = GameObject.Find("UpgradeCost").GetComponent<TextMeshProUGUI>();
+            upgradeCost.text = "-" + gameManager.LastTower.GetComponent<ShopData>().upgradeCost.ToString();
+        }
     }
 }

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
@@ -14,7 +16,8 @@ public class ShopManager : MonoBehaviour
 
     private Tilemap _map;
 
-    [SerializeField] public Tile goodTile;
+    [SerializeField] 
+    public Tile goodTile;
 
     // Start is called before the first frame update
     void Start()
