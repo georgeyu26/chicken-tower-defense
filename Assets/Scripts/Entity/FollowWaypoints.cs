@@ -3,7 +3,7 @@ using UnityEngine;
 public class FollowWaypoints : MonoBehaviour
 {
     // Target path
-    public GameObject[] waypoints;
+    public Vector2[] waypoints;
     private int _currentWaypoint;
 
     // Variables about the chicken body
@@ -23,15 +23,14 @@ public class FollowWaypoints : MonoBehaviour
     private void FixedUpdate()
     {
         // Change waypoint if last waypoint was reached
-        if (Vector2.Distance(transform.position, waypoints[_currentWaypoint].transform.position) < 
-            _collider.radius)
+        if (Vector2.Distance(transform.position, waypoints[_currentWaypoint]) < _collider.radius)
         {
             _currentWaypoint++;
             _currentWaypoint %= waypoints.Length;
         }
         
         // Calculate what direction the next waypoint is at
-        Vector2 toFace = waypoints[_currentWaypoint].transform.position - transform.position;
+        var toFace = waypoints[_currentWaypoint] - (Vector2)transform.position;
         toFace.Normalize();
         
         // Calculate the actual velocity of the chicken (factoring in stopping speed, etc.)
