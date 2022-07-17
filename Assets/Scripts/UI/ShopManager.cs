@@ -7,7 +7,7 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    private bool showShop;
+    public bool showShop;
 
     private GameManager gameManager;
 
