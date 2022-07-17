@@ -1,18 +1,21 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
     public GameObject towerManagementPanel;
 
     private int _currency;
     public TextMeshProUGUI currencyText;
+    public TextMeshProUGUI highScoreText;
 
-    public int Currency {
+    public int Currency
+    {
         get => _currency;
-        set {
+        set
+        {
             _currency = value;
             currencyText.text = value.ToString();
         }
@@ -21,9 +24,11 @@ public class GameManager : MonoBehaviour
     private int _lfpHealth;
     public TextMeshProUGUI healthText;
 
-    public int LFPHealth {
+    public int LFPHealth
+    {
         get => _lfpHealth;
-        set {
+        set
+        {
             _lfpHealth = value;
             healthText.text = "<size=30> <sprite=0> </size>" + value.ToString();
         }
@@ -40,19 +45,21 @@ public class GameManager : MonoBehaviour
     private ObjectPool Pool { get; set; }
 
     private int _roundNumber = 0;
-    
+
     public TextMeshProUGUI roundText;
     public GameObject nextRoundButton;
     public GameObject shopButton;
-    
+
     private Range _selectedTower;
-    
+
     public GameObject TowerPreFab => towerPrefab;
     public Hover Hover => hover;
 
-    private void Awake() {
+    private void Awake()
+    {
         RoundInProgress = false;
-        
+        GetComponent<TextMeshProUGUI>();
+
         Pool = GetComponent<ObjectPool>();
         Currency = 1000; // starting amount of money given to player
         LFPHealth = 100;
@@ -88,11 +95,15 @@ public class GameManager : MonoBehaviour
     public bool RoundInProgress { get; set; }
     public bool IsCurrentlySpawning { get; set; }
 
-    public void StartRound() {
+    public void StartRound()
+    {
         // Augment the round number
         _roundNumber++;
         roundText.text = $"Round {_roundNumber}";
-        
+        // Update the max score
+        Score.UpdateHighScore(_roundNumber);
+        // highScoreText.text = "HIGHSCORE : " + Score.GetHighScore();
+
         // Start spawning chickens
         RoundInProgress = true;
         IsCurrentlySpawning = true;
@@ -108,7 +119,7 @@ public class GameManager : MonoBehaviour
     {
         // Reward the player for finishing the round
         Currency += 1000;
-        
+
         // Turn off round-in-progress indicators
         RoundInProgress = false;
         IsCurrentlySpawning = false;
@@ -122,17 +133,31 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Spawn(string s)
     {
-        foreach (var c in s) {
-            switch (c) {
-                case 'a': Pool.GetObject("Chick"); break;
-                case 'b': Pool.GetObject("Chicken"); break;
-                case 'c': Pool.GetObject("Cock"); break;
-                case 'd': Pool.GetObject("Undead"); break;
-                case 'e': Pool.GetObject("RegimeCockman"); break;
-                default: yield return new WaitForSeconds(c - '0'); break;
+        foreach (var c in s)
+        {
+            switch (c)
+            {
+                case 'a':
+                    Pool.GetObject("Chick");
+                    break;
+                case 'b':
+                    Pool.GetObject("Chicken");
+                    break;
+                case 'c':
+                    Pool.GetObject("Cock");
+                    break;
+                case 'd':
+                    Pool.GetObject("Undead");
+                    break;
+                case 'e':
+                    Pool.GetObject("RegimeCockman");
+                    break;
+                default:
+                    yield return new WaitForSeconds(c - '0');
+                    break;
             }
         }
-        
+
         FindObjectOfType<GameManager>().IsCurrentlySpawning = false;
     }
 
@@ -140,15 +165,15 @@ public class GameManager : MonoBehaviour
     {
         string s = _roundNumber switch
         {
-            1  => "a",
-            2  => "a8a8a",
-            3  => "a7a7a7a",
-            4  => "a6a6a6a6a",
-            5  => "a5a5a5a5a5a",
-            6  => "a4a4a4a4a4a4a",
-            7  => "a3a3a3a3a3a3a3a",
-            8  => "a2a2a2a2a2a2a2a2a",
-            9  => "a1a1a1a1a1a1a1a1a1a",
+            1 => "a",
+            2 => "a8a8a",
+            3 => "a7a7a7a",
+            4 => "a6a6a6a6a",
+            5 => "a5a5a5a5a5a",
+            6 => "a4a4a4a4a4a4a",
+            7 => "a3a3a3a3a3a3a3a",
+            8 => "a2a2a2a2a2a2a2a2a",
+            9 => "a1a1a1a1a1a1a1a1a1a",
             10 => "b",
             11 => "a9a9b",
             12 => "a8a8b8b",
@@ -190,7 +215,7 @@ public class GameManager : MonoBehaviour
             48 => "e2a2b2e2c2d2e2b2e2e",
             49 => "e1e1e1e1e1e1e1e1e1e",
             50 => "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e",
-            _  => "a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b"
+            _ => "a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b"
         };
         StartCoroutine(Spawn(s));
     }
@@ -199,13 +224,14 @@ public class GameManager : MonoBehaviour
     {
         // Row corresponds to type of attack, column corresponds to type of victim
         float[,] multiplierSheet =
-        {//            Normal  Fire    Nature  Undead
-         /* Normal */ {1.0f,   1.0f,   1.0f,   0.0f},
-         /* Fire   */ {2.0f,   0.0f,   2.0f,   1.5f},
-         /* Nature */ {0.5f,   0.0f,   1.0f,   0.0f},
-         /* Undead */ {1.0f,   0.5f,   1.5f,   1.0f},
+        {
+            //            Normal  Fire    Nature  Undead
+            /* Normal */ { 1.0f, 1.0f, 1.0f, 0.0f },
+            /* Fire   */ { 2.0f, 0.0f, 2.0f, 1.5f },
+            /* Nature */ { 0.5f, 0.0f, 1.0f, 0.0f },
+            /* Undead */ { 1.0f, 0.5f, 1.5f, 1.0f },
         };
 
-        return multiplierSheet[(int)attack,(int)victim];
+        return multiplierSheet[(int)attack, (int)victim];
     }
 }
