@@ -103,8 +103,7 @@ public class TileScript : MonoBehaviour
             gameManager.Hover.Deactivate();
             GameObject tower = (GameObject) Instantiate(gameManager.ClickedTower.TowerPrefab, gridPos, Quaternion.identity);
 
-            tower.name = tower.name + id;
-            id++;
+            tower.name += id++;
 
             map.SetTile(gridPos, usedTile);
             // Use offscreen tile to reset
@@ -116,5 +115,9 @@ public class TileScript : MonoBehaviour
             map.SetTile(prevPos, prevTile);
             gameManager.Hover.Deactivate();
         }
+    }
+    public void LoadTower(GameObject tower)
+    {
+        map.SetTile(Vector3Int.FloorToInt(tower.transform.position), usedTile);
     }
 }

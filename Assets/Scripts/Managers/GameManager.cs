@@ -46,6 +46,16 @@ public class GameManager : MonoBehaviour
 
     private int _roundNumber = 0;
 
+    public int RoundNumber
+    {
+        get => _roundNumber;
+        set
+        {
+            _roundNumber = value;
+            roundText.text = $"Round {_roundNumber}";
+        }
+    }
+
     public TextMeshProUGUI roundText;
     public GameObject nextRoundButton;
     public GameObject shopButton;
@@ -127,6 +137,9 @@ public class GameManager : MonoBehaviour
         // Reactivate UI elements
         nextRoundButton.SetActive(true);
         shopButton.SetActive(true);
+        
+        //saves gamestate at end of each round 
+        GameSaveManager.SaveGame(_roundNumber, _lfpHealth, _currency, GameObject.FindGameObjectsWithTag("Tower"));
     }
 
     private bool AllChickensDead() => GameObject.FindGameObjectsWithTag("Chicken").Length == 0;
@@ -233,5 +246,19 @@ public class GameManager : MonoBehaviour
         };
 
         return multiplierSheet[(int)attack, (int)victim];
+    }
+
+    public void LoadGame(){
+        GameState data = GameSaveManager.LoadGame();
+        
+        RoundNumber = data.currency;
+        LFPHealth = data.health;
+        Currency = data.currency;
+
+        var tilescript = GameObject.Find("TileManager");
+        foreach (var tower in data.towers)
+        {
+            tilescript.GetComponent<TileScript>().LoadTower(tower);
+        }
     }
 }
