@@ -15,4 +15,9 @@ public class MainMenu : MonoBehaviour
         Debug.Log("GAME IS QUITTING");
         Application.Quit();
     }
+
+    public void LoadGame()
+    {
+        Debug.Log("LoadGame Attempted");
+    }
 }
