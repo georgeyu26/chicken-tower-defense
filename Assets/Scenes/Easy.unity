@@ -1337,6 +1337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491ef0379aedaae429cd1f70b5802fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showShop: 0
   shopPanel: {fileID: 655054258}
   goodTile: {fileID: 11400000, guid: aa143d07d48b2ff4a8b61c59fdac70a5, type: 2}
 --- !u!114 &378358592
@@ -9959,7 +9960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500186321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.34431097, y: -2.8081496, z: -9.671731}
+  m_LocalPosition: {x: -0.34431097, y: -2.8081496, z: -10000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11613,6 +11614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerManagementPanel: {fileID: 452493439}
   currencyText: {fileID: 1339895692}
+  highScoreText: {fileID: 0}
   healthText: {fileID: 382525449}
   towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
   hover: {fileID: 35816580}

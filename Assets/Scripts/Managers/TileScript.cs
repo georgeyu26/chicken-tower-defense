@@ -116,8 +116,17 @@ public class TileScript : MonoBehaviour
             gameManager.Hover.Deactivate();
         }
     }
-    public void LoadTower(GameObject tower)
+    public void LoadTower(TowerData towerData)
     {
-        map.SetTile(Vector3Int.FloorToInt(tower.transform.position), usedTile);
+        Vector3 towerPos = new Vector3(towerData.TowerPos[0], towerData.TowerPos[1], towerData.TowerPos[2]);
+        GameObject tower = (GameObject) Instantiate(Resources.Load(towerData.TowerType, typeof(GameObject)), towerPos , Quaternion.identity);
+        map.SetTile(Vector3Int.FloorToInt(towerPos), usedTile);
+
+        tower.GetComponent<ShopData>().level = towerData.TowerLevel;
+        tower.GetComponent<Health>().currentHealth = towerData.TowerHealth;
+        tower.GetComponent<ShopData>().repairCost = towerData.TowerRepairCost;
+        tower.GetComponent<ShopData>().upgradeCost = towerData.TowerUpgradeCost;
+
+        
     }
 }

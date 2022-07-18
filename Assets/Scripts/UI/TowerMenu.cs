@@ -27,6 +27,7 @@ public class TowerMenu : MonoBehaviour
     }
 
     void OnMouseDown(){
+        Debug.Log(gameManager.LastTower);
         if(gameManager.LastTower != null){
             TowerMenu last = (TowerMenu) gameManager.LastTower.GetComponent(typeof(TowerMenu));
             last.Toggle();

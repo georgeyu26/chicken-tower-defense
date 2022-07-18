@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class GameManager : MonoBehaviour
     private int _currency;
     public TextMeshProUGUI currencyText;
     public TextMeshProUGUI highScoreText;
-
+    public static string gameType = "New Game";
+    
     public int Currency
     {
         get => _currency;
@@ -45,7 +47,6 @@ public class GameManager : MonoBehaviour
     private ObjectPool Pool { get; set; }
 
     private int _roundNumber = 0;
-
     public int RoundNumber
     {
         get => _roundNumber;
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
             roundText.text = $"Round {_roundNumber}";
         }
     }
-
+    
     public TextMeshProUGUI roundText;
     public GameObject nextRoundButton;
     public GameObject shopButton;
@@ -66,14 +67,40 @@ public class GameManager : MonoBehaviour
     public Hover Hover => hover;
 
     private void Awake()
-    {
-        RoundInProgress = false;
-        GetComponent<TextMeshProUGUI>();
+    {   
+        if (gameType == "New Game") {
+            //print("In awake");
+            RoundInProgress = false;
+            GetComponent<TextMeshProUGUI>();
+            Pool = GetComponent<ObjectPool>();
+            Currency = 1000; // starting amount of money given to player
+            LFPHealth = 100;
+            _levelManager = FindObjectOfType<LevelManager>();
+        }
+        else if (gameType == "Loaded Game")
+        {
+            RoundInProgress = false;
+            GetComponent<TextMeshProUGUI>();
+            Pool = GetComponent<ObjectPool>();
+            LoadGame();
+            GameState data = GameSaveManager.LoadGame();
+            //Debug.Log("Loading in currency: " + data.savedCurrency);
+            Currency = data.savedCurrency;
+            //Currency = loadedCurrency;
+            RoundNumber = data.savedRound;
+            LFPHealth = data.savedHealth;
+            
+            // Debug.Log(Currency);
+            // Debug.Log(LFPHealth);
+            // Debug.Log(RoundNumber);
 
-        Pool = GetComponent<ObjectPool>();
-        Currency = 1000; // starting amount of money given to player
-        LFPHealth = 100;
-        _levelManager = FindObjectOfType<LevelManager>();
+            var tilescript = GameObject.Find("TileManager");
+            foreach (var tower in data.savedTowers)
+            {
+                tilescript.GetComponent<TileScript>().LoadTower(tower);
+            }
+            _levelManager = FindObjectOfType<LevelManager>();
+        }
     }
 
     private void Update()
@@ -137,10 +164,12 @@ public class GameManager : MonoBehaviour
         // Reactivate UI elements
         nextRoundButton.SetActive(true);
         shopButton.SetActive(true);
+
+        GameState save = new GameState(RoundNumber, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
         
-        //saves gamestate at end of each round 
-        GameSaveManager.SaveGame(_roundNumber, _lfpHealth, _currency, GameObject.FindGameObjectsWithTag("Tower"));
-    }
+        //GameSaveManager.SaveGame(RoundNumber, LFPHealth, Currency); //GameObject.FindGameObjectsWithTag("Tower"));
+        GameSaveManager.SaveGame(save);
+    }   
 
     private bool AllChickensDead() => GameObject.FindGameObjectsWithTag("Chicken").Length == 0;
 
@@ -247,18 +276,13 @@ public class GameManager : MonoBehaviour
 
         return multiplierSheet[(int)attack, (int)victim];
     }
-
+    
     public void LoadGame(){
-        GameState data = GameSaveManager.LoadGame();
-        
-        RoundNumber = data.currency;
-        LFPHealth = data.health;
-        Currency = data.currency;
+        gameType = "Loaded Game";
+    }
 
-        var tilescript = GameObject.Find("TileManager");
-        foreach (var tower in data.towers)
-        {
-            tilescript.GetComponent<TileScript>().LoadTower(tower);
-        }
+    public void NewGame()
+    {
+        gameType = "New Game";
     }
 }

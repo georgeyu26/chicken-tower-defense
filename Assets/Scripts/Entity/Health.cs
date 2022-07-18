@@ -9,7 +9,7 @@ public abstract class Health : MonoBehaviour
 
     protected SpriteRenderer sp;
     
-    private void Start()
+    private void Awake()
     {
         currentHealth = maxHealth;
         sp = GetSpriteRenderer();

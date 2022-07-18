@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("Easy");
+        FindObjectOfType<GameManager>().NewGame();
     }
 
     public void QuitGame()
@@ -18,6 +20,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        Debug.Log("LoadGame Attempted");
+        SceneManager.LoadScene("Easy");
+        FindObjectOfType<GameManager>().LoadGame();
     }
 }

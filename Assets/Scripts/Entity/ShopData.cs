@@ -13,7 +13,7 @@ public class ShopData : MonoBehaviour
 
     public int upgradeCost;
     public int repairCost;
-    void Start()
+    void Awake()
     {
         level = 1;
         upgradeCost = 100;
