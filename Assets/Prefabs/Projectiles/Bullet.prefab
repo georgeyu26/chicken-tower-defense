@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  projectileStrength: 20
+  projectileStrength: 30
   toHit: Chicken
   hitAnimation: {fileID: 0}
 --- !u!114 &-5729457808338376154

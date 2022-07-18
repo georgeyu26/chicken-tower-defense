@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     private void FinishRound()
     {
         // Reward the player for finishing the round
-        Currency += 100;
+        Currency += 150;
 
         // Turn off round-in-progress indicators
         RoundInProgress = false;
