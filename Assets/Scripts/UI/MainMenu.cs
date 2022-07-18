@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public void Awake()
+    {
+        GameSaveManager.FindSavedGame();
+    }
+    
     public void PlayGame()
     {
-        // SceneManager.LoadScene("Easy");
-        // FindObjectOfType<GameManager>().NewGame();
         SceneManager.LoadScene("MapMenu");
     }
 
@@ -21,7 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("Easy");
-        FindObjectOfType<GameManager>().LoadGame();
+        if (GameSaveManager.mapToLoad == "") { return; } // no save to load, button does nothing
+        SceneManager.LoadScene(GameSaveManager.mapToLoad);
     }
 }

@@ -10,8 +10,6 @@ public class GameManager : MonoBehaviour
 
     private int _currency;
     public TextMeshProUGUI currencyText;
-    public TextMeshProUGUI highScoreText;
-    public static string gameType = "New Game";
     
     public int Currency
     {
@@ -46,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     private ObjectPool Pool { get; set; }
 
-    private int _roundNumber = 0;
+    private int _roundNumber;
     public int RoundNumber
     {
         get => _roundNumber;
@@ -67,40 +65,48 @@ public class GameManager : MonoBehaviour
     public Hover Hover => hover;
 
     private void Awake()
-    {   
-        if (gameType == "New Game") {
-            //print("In awake");
-            RoundInProgress = false;
-            GetComponent<TextMeshProUGUI>();
-            Pool = GetComponent<ObjectPool>();
-            Currency = 200; // starting amount of money given to player
-            LFPHealth = 100;
-            _levelManager = FindObjectOfType<LevelManager>();
-        }
-        else if (gameType == "Loaded Game")
+    {
+        // General instantiation stuff
+        RoundInProgress = false;
+        PauseMenu.paused = false;
+        Pool = GetComponent<ObjectPool>();
+
+        // If there is a save file to load
+        if (GameSaveManager.mapToLoad == SceneManager.GetActiveScene().name)
         {
-            RoundInProgress = false;
-            GetComponent<TextMeshProUGUI>();
-            Pool = GetComponent<ObjectPool>();
-            LoadGame();
             GameState data = GameSaveManager.LoadGame();
-            //Debug.Log("Loading in currency: " + data.savedCurrency);
-            Currency = data.savedCurrency;
-            //Currency = loadedCurrency;
+
+            // Fallback if there was data corruption or something
+            if (data == null)
+            {
+                GameSaveManager.DeleteSavedGame();
+                NewGame();
+                return;
+            }
+
             RoundNumber = data.savedRound;
+            Currency = data.savedCurrency;
             LFPHealth = data.savedHealth;
             
-            // Debug.Log(Currency);
-            // Debug.Log(LFPHealth);
-            // Debug.Log(RoundNumber);
-
             var tilescript = GameObject.Find("TileManager");
             foreach (var tower in data.savedTowers)
             {
                 tilescript.GetComponent<TileScript>().LoadTower(tower);
             }
-            _levelManager = FindObjectOfType<LevelManager>();
         }
+        else
+        {
+            NewGame();
+        }
+        
+        _levelManager = FindObjectOfType<LevelManager>();
+    }
+
+    private void NewGame()
+    {
+        RoundNumber = 0;
+        Currency = 200; // starting amount of money given to player
+        LFPHealth = 100;
     }
 
     private void Update()
@@ -134,12 +140,15 @@ public class GameManager : MonoBehaviour
 
     public void StartRound()
     {
+        // Save before a round starts
+        GameState save = new GameState(RoundNumber, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
+        GameSaveManager.SaveGame(save);
+
         // Augment the round number
         _roundNumber++;
         roundText.text = $"Round {_roundNumber}";
         // Update the max score
         Score.UpdateHighScore(_roundNumber);
-        // highScoreText.text = "HIGHSCORE : " + Score.GetHighScore();
 
         // Start spawning chickens
         RoundInProgress = true;
@@ -165,9 +174,8 @@ public class GameManager : MonoBehaviour
         nextRoundButton.SetActive(true);
         shopButton.SetActive(true);
 
+        // Save after a round is over
         GameState save = new GameState(RoundNumber, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
-        
-        //GameSaveManager.SaveGame(RoundNumber, LFPHealth, Currency); //GameObject.FindGameObjectsWithTag("Tower"));
         GameSaveManager.SaveGame(save);
     }   
 
@@ -205,7 +213,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnRound()
     {
-        string s = _roundNumber switch
+        var s = _roundNumber switch
         {
             1 => "a",
             2 => "a8a8a",
@@ -277,22 +285,10 @@ public class GameManager : MonoBehaviour
 
         return multiplierSheet[(int)attack, (int)victim];
     }
-    
-    public void LoadGame(){
-        gameType = "Loaded Game";
-    }
-
-    public void NewGame()
-    {
-        gameType = "New Game";
-    }
 
     public void GameOver()
     {
-        var filePath = Application.persistentDataPath + "/gameData.save";
-        if (File.Exists(filePath)) File.Delete(filePath);
-        gameType = "New Game";
-        Awake();
+        GameSaveManager.DeleteSavedGame();
         SceneManager.LoadScene("GameOver");
     }
 }

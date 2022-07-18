@@ -1,37 +1,54 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
 
 public static class GameSaveManager
 {
-    //public static void SaveGame(int GameRound, int GameHealth, int GameCurrency)
+    public static string mapToLoad = "";
+    
     public static void SaveGame(GameState data)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string saveFilePath = Application.persistentDataPath + "/gameData.save";
+        mapToLoad = SceneManager.GetActiveScene().name;
+        string saveFilePath = Application.persistentDataPath + "/" + mapToLoad + ".save";
 
-        Debug.Log("Saved file path: " + saveFilePath);
         FileStream stream = new FileStream(saveFilePath, FileMode.Create);
-        //GameState data = new GameState(GameRound, GameHealth, GameCurrency);
-        
         formatter.Serialize(stream, data);
         stream.Close();
+        
+        mapToLoad = SceneManager.GetActiveScene().name;
     }
 
-    public static GameState LoadGame(){
-        string saveFilePath = Application.persistentDataPath + "/gameData.save";
-        if (File.Exists(saveFilePath)){
+    public static GameState LoadGame()
+    {
+        var saveFilePath = Application.persistentDataPath + "/" + mapToLoad + ".save";
+        if (mapToLoad != "" && File.Exists(saveFilePath)){
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(saveFilePath, FileMode.Open);
             
             GameState data = formatter.Deserialize(stream) as GameState;
             stream.Close();
-            //Debug.Log(data.savedCurrency);
             return data;
         }
-        else{
-            Debug.LogError("Save file not found in " + saveFilePath);
-            return null;
+        
+        // No save file found: should never get here
+        return null;
+    }
+
+    public static void DeleteSavedGame()
+    {
+        var filePath = Application.persistentDataPath + "/" + mapToLoad + ".save";
+        if (File.Exists(filePath)) { File.Delete(filePath); }
+        mapToLoad = "";
+    }
+
+    public static void FindSavedGame()
+    {
+        foreach (var map in new[] { "Easy", "Medium", "Hard" })
+        {
+            var filePath = Application.persistentDataPath + "/" + map + ".save";
+            if (File.Exists(filePath)) { mapToLoad = map; }
         }
     }
 }
