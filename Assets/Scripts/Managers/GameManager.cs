@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _currency = value;
-            currencyText.text = value.ToString();
+            if (currencyText) currencyText.text = value.ToString();
         }
     }
 
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _lfpHealth = value;
-            healthText.text = "<size=30> <sprite=0> </size>" + value.ToString();
+            if (healthText) healthText.text = "<size=30> <sprite=0> </size>" + value.ToString();
         }
     }
 
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _roundNumber = value;
-            roundText.text = $"Round {_roundNumber}";
+            if (roundText) roundText.text = $"Round {_roundNumber}";
         }
     }
     
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
             RoundInProgress = false;
             GetComponent<TextMeshProUGUI>();
             Pool = GetComponent<ObjectPool>();
-            Currency = 1000; // starting amount of money given to player
+            Currency = 200; // starting amount of money given to player
             LFPHealth = 100;
             _levelManager = FindObjectOfType<LevelManager>();
         }
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     private void FinishRound()
     {
         // Reward the player for finishing the round
-        Currency += 1000;
+        Currency += 400;
 
         // Turn off round-in-progress indicators
         RoundInProgress = false;
@@ -267,11 +267,12 @@ public class GameManager : MonoBehaviour
         // Row corresponds to type of attack, column corresponds to type of victim
         float[,] multiplierSheet =
         {
-            //            Normal  Fire    Nature  Undead
-            /* Normal */ { 1.0f, 1.0f, 1.0f, 0.0f },
-            /* Fire   */ { 2.0f, 0.0f, 2.0f, 1.5f },
-            /* Nature */ { 0.5f, 0.0f, 1.0f, 0.0f },
-            /* Undead */ { 1.0f, 0.5f, 1.5f, 1.0f },
+            //            Nature Medieval Kitchen Military  Future
+            /* Nature */ { 1.0f, 1.0f, 0.5f, 0.0f, 0.0f },
+            /*Medieval*/ { 2.0f, 0.0f, 1.0f, 1.5f, 1.0f },
+            /* Kitchen */{ 0.5f, 1.5f, 1.0f, 1.0f, 0.0f },
+            /* Military*/{ 1.0f, 0.5f, 1.5f, 1.0f, 1.0f },
+            /* Future */ { 1.5f, 0.5f, 1.5f, 0.5f, 1.5f },
         };
 
         return multiplierSheet[(int)attack, (int)victim];
