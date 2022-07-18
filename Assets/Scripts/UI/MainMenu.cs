@@ -8,8 +8,9 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Easy");
-        FindObjectOfType<GameManager>().NewGame();
+        // SceneManager.LoadScene("Easy");
+        // FindObjectOfType<GameManager>().NewGame();
+        SceneManager.LoadScene("MapMenu");
     }
 
     public void QuitGame()

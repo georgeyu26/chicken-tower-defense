@@ -14,6 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: f7276848d113e7a47acd1c710f5769c6
+  - enabled: 1
+    path: Assets/Scenes/MapMenu.unity
+    guid: 6c025fd50605941e189025c383b1eae5
+  - enabled: 1
+    path: Assets/Scenes/Map1.unity
+    guid: 24ce1ebffedbe46aaa92f5b1d9570b13
+  - enabled: 1
+    path: Assets/Scenes/map2.unity
+    guid: 91a0188e494fba64e886768c978cb958
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 97a5fdd85c98049628755fc9f3f47a4b, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 42ed745f69adb4cc9b8d490d02850625, type: 2}

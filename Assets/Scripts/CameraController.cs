@@ -44,7 +44,7 @@ public class PanZoom : MonoBehaviour
             float magnitudeDiff = curMagnitude - prevMagnitude;
 
             zoom(magnitudeDiff * 0.01f);
-        } else if(Input.GetMouseButton(0) && FindObjectOfType<ShopManager>() &&!FindObjectOfType<ShopManager>().showShop){
+        } else if(Input.GetMouseButton(0) && (!FindObjectOfType<ShopManager>() || (FindObjectOfType<ShopManager>() && !FindObjectOfType<ShopManager>().showShop))){
             Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = dragOrigin - diff; 
 
