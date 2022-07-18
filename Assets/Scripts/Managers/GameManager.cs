@@ -291,6 +291,8 @@ public class GameManager : MonoBehaviour
     {
         var filePath = Application.persistentDataPath + "/gameData.save";
         if (File.Exists(filePath)) File.Delete(filePath);
+        gameType = "New Game";
+        Awake();
         SceneManager.LoadScene("GameOver");
     }
 }
