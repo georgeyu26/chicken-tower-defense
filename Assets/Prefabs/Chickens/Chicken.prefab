@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e45da9d0b94d5bae8b26e141c45e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 400
-  maxHealth: 400
+  currentHealth: 100
+  maxHealth: 100
   deathAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
 --- !u!114 &-2962365772913915852
 MonoBehaviour:
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78133ebd64442cc8fa4c4e527fb45d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!1 &8586663157696118026
 GameObject:
   m_ObjectHideFlags: 0

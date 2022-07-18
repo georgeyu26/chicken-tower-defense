@@ -1314,7 +1314,7 @@ RectTransform:
   m_GameObject: {fileID: 378358589}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 856423870}
@@ -1322,7 +1322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 30, y: 30}
+  m_AnchoredPosition: {x: 44.1, y: 30}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &378358591
@@ -1416,7 +1416,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1628181703, guid: 3d8f4bfecfc86e94c98052342c9b3aa4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd76464d8032f4ef7b23eaf753fac499, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2552,8 +2552,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.5, y: -11.5}
-  m_SizeDelta: {x: 60.6182, y: 27.34}
+  m_AnchoredPosition: {x: -18.819, y: -11.5}
+  m_SizeDelta: {x: 73.257, y: 27.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &480953626
 MonoBehaviour:
@@ -2609,7 +2609,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2689,8 +2689,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -362, y: 59}
-  m_SizeDelta: {x: 15.0933, y: 15.0933}
+  m_AnchoredPosition: {x: 378.77325, y: 70.70267}
+  m_SizeDelta: {x: 13.4458, y: 12.3376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &545793716
 MonoBehaviour:
@@ -2780,7 +2780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 107c749313a14e04fbe6c83a8a75e792, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ddbde67d5675c4519b6d31dbe3d7a38e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3011,7 +3011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 353, y: 30}
+  m_AnchoredPosition: {x: 367.75, y: 30}
   m_SizeDelta: {x: 735.4937, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655054260
@@ -3035,7 +3035,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 60, y: 60}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 10, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!222 &655054261
@@ -9011,8 +9011,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.5, y: -12.5}
-  m_SizeDelta: {x: 60.6182, y: 27.34}
+  m_AnchoredPosition: {x: -18.819, y: -13.085}
+  m_SizeDelta: {x: 73.257, y: 26.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1302170996
 MonoBehaviour:
@@ -9068,7 +9068,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -10050,8 +10050,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -361.99994, y: 120.88248}
-  m_SizeDelta: {x: 15.0933, y: 15.0933}
+  m_AnchoredPosition: {x: 333.9, y: 70.9}
+  m_SizeDelta: {x: 13.813, y: 12.7223}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1557670509
 MonoBehaviour:
@@ -10122,14 +10122,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.623445, g: 0.7921569, b: 0.2117647, a: 1}
+  m_Color: {r: 1, g: 0.9058824, b: 0.3803922, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9a580eed33fa23f419d1ea75cb6d6715, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b483ee83bcabc4f94978c99c215b1825, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10715,7 +10715,7 @@ GameObject:
   - component: {fileID: 1810983554}
   - component: {fileID: 1810983555}
   m_Layer: 5
-  m_Name: Furnace Button
+  m_Name: Beacon Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10805,7 +10805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c2ddc104d3624e0f80172c8560a9142, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10836,9 +10836,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerBtn: {fileID: 1810983551}
-  towerPrefab: {fileID: 7628305689298638356, guid: 41f24a803084c36409a719a6fe7afba1, type: 3}
-  sprite: {fileID: 21300000, guid: 75e13932c370ee34e9c8cc760d139d67, type: 3}
-  cost: 50
+  towerPrefab: {fileID: 2235217810108554529, guid: 21250f1f4a9ad4ce0a8e82e9800f719f, type: 3}
+  sprite: {fileID: 21300000, guid: 4c2ddc104d3624e0f80172c8560a9142, type: 3}
+  cost: 1000
 --- !u!114 &1810983555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11108,7 +11108,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -11168,8 +11168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14.3, y: -12.049}
-  m_SizeDelta: {x: 60.6182, y: 27.34}
+  m_AnchoredPosition: {x: -20.12, y: -12.049}
+  m_SizeDelta: {x: 72.257, y: 27.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1873699116
 GameObject:

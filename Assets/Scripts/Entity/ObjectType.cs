@@ -1,7 +1,8 @@
 public enum ObjectType
 {
-    Normal,
-    Fire,
     Nature,
-    Undead
+    Medieval,
+    Kitchen,
+    Military,
+    Future
 }

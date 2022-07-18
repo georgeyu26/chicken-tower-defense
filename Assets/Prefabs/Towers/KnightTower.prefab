@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6875464857271671}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.526, y: 0.543, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3184796085477565580}
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add13ff5961d4494686035fdea0d8012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusOfAttack: 1
+  radiusOfAttack: 2
   sleepTime: 1
   enemyLayer: Chicken
   bulletToFire: {fileID: 7508634789274815768, guid: 0baa6fae2568247aab76b62a0e41561e, type: 3}
@@ -292,3 +292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 80
+  level: 0
+  upgradeCost: 0
+  repairCost: 0

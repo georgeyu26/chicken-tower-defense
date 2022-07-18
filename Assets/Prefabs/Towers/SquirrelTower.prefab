@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiusOfAttack: 1
-  sleepTime: 5
+  sleepTime: 2
   enemyLayer: Chicken
   bulletToFire: {fileID: 6437267585841217347, guid: 73f80ee266b3445b98c6ab7c1ac76047, type: 3}
 --- !u!50 &8213650865585470088
@@ -292,3 +292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 20
+  level: 0
+  upgradeCost: 0
+  repairCost: 0
