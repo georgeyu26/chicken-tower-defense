@@ -56,8 +56,8 @@ public class ShopManager : MonoBehaviour
     public void Upgrade()
     {
         gameManager.LastTower.GetComponent<ShopData>().level += 1;
-        gameManager.LastTower.GetComponent<TowerHealth>().maxHealth = (int)1.2*gameManager.LastTower.GetComponent<TowerHealth>().maxHealth;
-        gameManager.LastTower.GetComponent<AimAndShoot>().sleepTime =  (int)1.2*gameManager.LastTower.GetComponent<AimAndShoot>().sleepTime;
+        gameManager.LastTower.GetComponent<TowerHealth>().maxHealth = (int)(1.4*gameManager.LastTower.GetComponent<TowerHealth>().maxHealth);
+        gameManager.LastTower.GetComponent<AimAndShoot>().sleepTime =  (int)(1.4*gameManager.LastTower.GetComponent<AimAndShoot>().sleepTime);
 
         gameManager.Currency -= gameManager.LastTower.GetComponent<ShopData>().upgradeCost;
 
