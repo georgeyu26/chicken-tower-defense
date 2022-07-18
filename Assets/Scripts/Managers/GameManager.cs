@@ -1,8 +1,8 @@
-using System;
 using System.Collections;
+using System.IO;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -267,12 +267,12 @@ public class GameManager : MonoBehaviour
         // Row corresponds to type of attack, column corresponds to type of victim
         float[,] multiplierSheet =
         {
-            //            Nature Medieval Kitchen Military  Future
-            /* Nature */ { 1.0f, 1.0f, 0.5f, 0.0f, 0.0f },
-            /*Medieval*/ { 2.0f, 0.0f, 1.0f, 1.5f, 1.0f },
-            /* Kitchen */{ 0.5f, 1.5f, 1.0f, 1.0f, 0.0f },
-            /* Military*/{ 1.0f, 0.5f, 1.5f, 1.0f, 1.0f },
-            /* Future */ { 1.5f, 0.5f, 1.5f, 0.5f, 1.5f },
+            //               Nat   Med   Kit   Mil   Fut
+            /* Nature   */ { 1.0f, 1.0f, 0.5f, 0.0f, 0.0f },
+            /* Medieval */ { 2.0f, 0.0f, 1.0f, 1.5f, 1.0f },
+            /* Kitchen  */ { 0.5f, 1.5f, 1.0f, 1.0f, 0.0f },
+            /* Military */ { 1.0f, 0.5f, 1.5f, 1.0f, 1.0f },
+            /* Future   */ { 1.5f, 0.5f, 1.5f, 0.5f, 1.5f },
         };
 
         return multiplierSheet[(int)attack, (int)victim];
@@ -285,5 +285,12 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         gameType = "New Game";
+    }
+
+    public void GameOver()
+    {
+        var filePath = Application.persistentDataPath + "/gameData.save";
+        if (File.Exists(filePath)) File.Delete(filePath);
+        SceneManager.LoadScene("GameOver");
     }
 }

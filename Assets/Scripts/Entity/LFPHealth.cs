@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LPCHealth : Health
+public class LFPHealth : Health
 {
     protected override SpriteRenderer GetSpriteRenderer()
     {
@@ -16,11 +16,8 @@ public class LPCHealth : Health
 
     protected override void HandleGameStateInteractions()
     {
-        for (int i = 0; i < 20; i++)
-        {
-            Handheld.Vibrate();
-        }
-        SceneManager.LoadScene("GameOver");
+        for (int i = 0; i < 20; i++) { Handheld.Vibrate(); }
+        FindObjectOfType<GameManager>().GameOver();
     }
 
     // LPC doesn't need to interact with map since its destruction is end of game anyway
