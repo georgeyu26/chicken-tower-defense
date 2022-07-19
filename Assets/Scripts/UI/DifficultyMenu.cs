@@ -10,7 +10,7 @@ public class DifficultyMenu : MonoBehaviour
     {
         GameSaveManager.DeleteSavedGame();
         GameStateManager.difficulty = difficulty;
-        SceneManager.LoadScene(GameStateManager.map);
+        SceneManager.LoadScene(GameStateManager.mapToLoad);
     }
     public void PlayEasyDifficulty() { PlayDifficulty("Easy"); }
     public void PlayMediumDifficulty() { PlayDifficulty("Medium"); }

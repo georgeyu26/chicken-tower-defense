@@ -105,18 +105,7 @@ public class GameManager : MonoBehaviour
     {
         RoundNumber = 0;
         // starting money
-        switch (GameStateManager.difficulty)
-        {
-            case "Easy":
-                Currency = 300;
-                break;
-            case "Medium":
-                Currency = 200;
-                break;
-            case "Hard":
-                Currency = 100;
-                break;
-        }
+        Currency = GameStateManager.getStartingCurrency();
         // starting LFP health
         LFPHealth = 100;
     }
@@ -176,18 +165,7 @@ public class GameManager : MonoBehaviour
     private void FinishRound()
     {
         // Reward the player for finishing the round
-        switch (GameStateManager.difficulty)
-        {
-            case "Easy":
-                Currency += 15 * RoundNumber + 75;
-                break;
-            case "Medium":
-                Currency += 10 * RoundNumber + 50;
-                break;
-            case "Hard":
-                Currency += 5 * RoundNumber + 25;
-                break;
-        }
+        Currency += GameStateManager.getRoundBonus(RoundNumber);
 
         // Turn off round-in-progress indicators
         RoundInProgress = false;
