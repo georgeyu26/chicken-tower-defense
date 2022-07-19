@@ -55,8 +55,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int _roundNumber;
-    public int RoundNumber
+    private static int _roundNumber;
+    public static int RoundNumber
     {
         get => _roundNumber;
         set
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public TextMeshProUGUI roundText;
+    public static TextMeshProUGUI roundText;
     public GameObject nextRoundButton;
     public GameObject shopButton;
 
@@ -259,7 +259,7 @@ public class GameManager : MonoBehaviour
 
     private void SpawnRound()
     {
-        s = _roundNumber switch
+        var s = _roundNumber switch
         {
             1 => "a",
             2 => "a8a8a",

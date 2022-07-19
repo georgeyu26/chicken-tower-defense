@@ -22,13 +22,13 @@ public class ObjectPool : MonoBehaviour {
                 switch (GameManager.Difficulty)
                 {
                     case 0:
-                        newObject.GetComponent<FollowWaypoints>().maxSpeed *= 0.75
+                        newObject.GetComponent<FollowWaypoints>().maxSpeed *= 0.75f;
                         break;
                     case 1:
-                        newObject.GetComponent<FollowWaypoints>().maxSpeed *= 1
+                        newObject.GetComponent<FollowWaypoints>().maxSpeed *= 1.0f;
                         break;
                     case 2:
-                        newObject.GetComponent<FollowWaypoints>().maxSpeed *= 1.5
+                        newObject.GetComponent<FollowWaypoints>().maxSpeed *= 1.25f;
                         break;
                 }
                 if (GameManager.RoundNumber > 50)
