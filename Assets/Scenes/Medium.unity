@@ -21383,7 +21383,7 @@ MonoBehaviour:
   boundBox: {fileID: 1663503552}
   minBounds: {x: 0, y: 0, z: 0}
   maxBounds: {x: 0, y: 0, z: 0}
-  zoomMin: 1
+  zoomMin: 2
   zoomMax: 8
 --- !u!1 &1730512103
 GameObject:

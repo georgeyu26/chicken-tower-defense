@@ -10,7 +10,7 @@ public class PanZoom : MonoBehaviour
     public Vector3 maxBounds; 
 
     public float zoomMin = 2; 
-    public float zoomMax = 6; 
+    public float zoomMax = 10; 
 
 
     private float halfHeight;
@@ -50,7 +50,6 @@ public class PanZoom : MonoBehaviour
 
             Camera.main.transform.position = ClampCamera(Camera.main.transform.position + direction);
             //Camera.main.transform.position += direction;
-
             //Camera.main.transform.position += clampedDirection.ClampedMagnitude(direction, min(clampedX,clampedY));
         }
         zoom(Input.GetAxis("Mouse ScrollWheel"));

@@ -3147,7 +3147,7 @@ MonoBehaviour:
   minBounds: {x: 0, y: 0, z: 0}
   maxBounds: {x: 0, y: 0, z: 0}
   zoomMin: 2
-  zoomMax: 6
+  zoomMax: 5
 --- !u!1 &658969198
 GameObject:
   m_ObjectHideFlags: 0

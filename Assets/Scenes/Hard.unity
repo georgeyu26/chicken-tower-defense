@@ -984,8 +984,8 @@ MonoBehaviour:
   boundBox: {fileID: 139064562}
   minBounds: {x: 0, y: 0, z: 0}
   maxBounds: {x: 0, y: 0, z: 0}
-  zoomMin: 2
-  zoomMax: 6
+  zoomMin: 3
+  zoomMax: 7
 --- !u!1 &247565629
 GameObject:
   m_ObjectHideFlags: 0
