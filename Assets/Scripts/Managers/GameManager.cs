@@ -141,10 +141,10 @@ public class GameManager : MonoBehaviour
         switch (Difficulty)
         {
             case "Easy":
-                LFPHealth = 200;
+                LFPHealth = 300;
                 break;
             case "Medium":
-                LFPHealth = 150;
+                LFPHealth = 200;
                 break;
             case "Hard":
                 LFPHealth = 100;
@@ -210,13 +210,13 @@ public class GameManager : MonoBehaviour
         switch (Difficulty)
         {
             case "Easy":
-                Currency += 2 * RoundNumber + 150;
+                Currency += 15 * RoundNumber + 75;
                 break;
             case "Medium":
-                Currency += RoundNumber + 100;
+                Currency += 10 * RoundNumber + 50;
                 break;
             case "Hard":
-                Currency += RoundNumber / 2 + 50;
+                Currency += 5 * RoundNumber + 25;
                 break;
         }
 
@@ -319,7 +319,7 @@ public class GameManager : MonoBehaviour
             48 => "e2a2b2e2c2d2e2b2e2e",
             49 => "e1e1e1e1e1e1e1e1e1e",
             50 => "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e",
-            _ => "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e"
+            _ => "a1b1c1d1e1a1b1c1d1e1a1b1c1d1e1a1b1c1d1e1a1b1c1d1e"
         };
         StartCoroutine(Spawn(s));
     }

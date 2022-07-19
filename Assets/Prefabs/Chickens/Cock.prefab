@@ -223,7 +223,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 7
+  m_Mass: 150
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -262,8 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   maxSpeed: 3
-  brakingFactor: 50
-  acceleration: 50
+  brakingFactor: 3
+  acceleration: 3
 --- !u!114 &8019322943463317965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,8 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e45da9d0b94d5bae8b26e141c45e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 300
-  maxHealth: 300
+  currentHealth: 1000
+  maxHealth: 1000
   deathAnimation: {fileID: 4534746964216340064, guid: ef923d9c80921174aaf996d62e047a16, type: 3}
 --- !u!114 &4734571364469971213
 MonoBehaviour:
