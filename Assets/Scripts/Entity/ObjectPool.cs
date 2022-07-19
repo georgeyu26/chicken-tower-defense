@@ -19,6 +19,22 @@ public class ObjectPool : MonoBehaviour {
             {
                 GameObject newObject = Instantiate(prefab, transform.position, Quaternion.identity);
                 newObject.GetComponent<FollowWaypoints>().waypoints = _waypointStrategy.GetWaypoints();
+                switch (GameManager.Difficulty)
+                {
+                    case "Easy":
+                        newObject.GetComponent<FollowWaypoints>().maxSpeed *= 0.75f;
+                        break;
+                    case "Medium":
+                        newObject.GetComponent<FollowWaypoints>().maxSpeed *= 1.0f;
+                        break;
+                    case "Hard":
+                        newObject.GetComponent<FollowWaypoints>().maxSpeed *= 1.25f;
+                        break;
+                }
+                if (GameManager.RoundNumber > 50)
+                {
+                    newObject.GetComponent<FollowWaypoints>().maxSpeed += GameManager.RoundNumber - 50;
+                }
                 newObject.name = type;
                 return newObject;
             }

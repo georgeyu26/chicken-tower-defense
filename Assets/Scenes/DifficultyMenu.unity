@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &11201630
+--- !u!1 &62450156
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,23 +131,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 11201631}
-  - component: {fileID: 11201633}
-  - component: {fileID: 11201632}
+  - component: {fileID: 62450157}
+  - component: {fileID: 62450159}
+  - component: {fileID: 62450158}
   m_Layer: 5
-  m_Name: SelectMap
+  m_Name: SelectDifficulty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &11201631
+--- !u!224 &62450157
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11201630}
+  m_GameObject: {fileID: 62450156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.6999998, y: 3.6999998, z: 3.6999998}
@@ -158,16 +158,16 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163, y: 625}
+  m_AnchoredPosition: {x: -35, y: 625}
   m_SizeDelta: {x: 129.99, y: 28.804}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &11201632
+--- !u!114 &62450158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11201630}
+  m_GameObject: {fileID: 62450156}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SELECT MAP
+  m_text: SELECT DIFFICULTY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ba6f63d1c8131f48bf4ac7ef06fbc8c, type: 2}
   m_sharedMaterial: {fileID: -3683388529233180459, guid: 4ba6f63d1c8131f48bf4ac7ef06fbc8c, type: 2}
@@ -244,19 +244,19 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -86.44731, y: 0, z: 1.6532593, w: 0}
+  m_margin: {x: -86.44731, y: 0, z: -105.60773, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &11201633
+--- !u!222 &62450159
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11201630}
+  m_GameObject: {fileID: 62450156}
   m_CullTransparentMesh: 1
 --- !u!1 &143295247
 GameObject:
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 143295250}
   - component: {fileID: 143295249}
   m_Layer: 5
-  m_Name: AdvancedText
+  m_Name: HardText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ADVANCED
+  m_text: HARD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ba6f63d1c8131f48bf4ac7ef06fbc8c, type: 2}
   m_sharedMaterial: {fileID: -3683388529233180459, guid: 4ba6f63d1c8131f48bf4ac7ef06fbc8c, type: 2}
@@ -405,7 +405,7 @@ GameObject:
   - component: {fileID: 540460876}
   - component: {fileID: 540460875}
   m_Layer: 5
-  m_Name: BeginnerText
+  m_Name: EasyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BEGINNER
+  m_text: EASY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ba6f63d1c8131f48bf4ac7ef06fbc8c, type: 2}
   m_sharedMaterial: {fileID: -3683388529233180459, guid: 4ba6f63d1c8131f48bf4ac7ef06fbc8c, type: 2}
@@ -609,7 +609,7 @@ GameObject:
   - component: {fileID: 831653516}
   - component: {fileID: 831653520}
   m_Layer: 5
-  m_Name: BeginnerButton
+  m_Name: EasyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -660,8 +660,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 831653520}
-        m_TargetAssemblyTypeName: MapMenu, Assembly-CSharp
-        m_MethodName: PlayBeginnerMap
+        m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
+        m_MethodName: PlayEasyDifficulty
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -739,7 +739,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 831653514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b24744633d0d480d8766b0830aefecd, type: 3}
+  m_Script: {fileID: 11500000, guid: a7b47b60962774784bc2ebb48882fc5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1011398545
@@ -914,7 +914,7 @@ GameObject:
   - component: {fileID: 1251097917}
   - component: {fileID: 1251097916}
   m_Layer: 5
-  m_Name: IntermediateText
+  m_Name: MediumText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -960,7 +960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: INTERMEDIATE
+  m_text: MEDIUM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4ba6f63d1c8131f48bf4ac7ef06fbc8c, type: 2}
   m_sharedMaterial: {fileID: -3683388529233180459, guid: 4ba6f63d1c8131f48bf4ac7ef06fbc8c, type: 2}
@@ -1134,7 +1134,7 @@ RectTransform:
   - {fileID: 831653519}
   - {fileID: 1735435105}
   - {fileID: 1663234648}
-  - {fileID: 11201631}
+  - {fileID: 62450157}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1169,7 +1169,7 @@ GameObject:
   - component: {fileID: 1663234649}
   - component: {fileID: 1663234652}
   m_Layer: 5
-  m_Name: AdvancedButton
+  m_Name: HardButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1241,8 +1241,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1663234652}
-        m_TargetAssemblyTypeName: MapMenu, Assembly-CSharp
-        m_MethodName: PlayAdvancedMap
+        m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
+        m_MethodName: PlayHardDifficulty
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1251,7 +1251,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1663234650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1663234647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b24744633d0d480d8766b0830aefecd, type: 3}
+  m_Script: {fileID: 11500000, guid: a7b47b60962774784bc2ebb48882fc5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1735435104
@@ -1316,7 +1316,7 @@ GameObject:
   - component: {fileID: 1735435106}
   - component: {fileID: 1735435109}
   m_Layer: 5
-  m_Name: IntermediateButton
+  m_Name: MediumButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1388,8 +1388,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1735435109}
-        m_TargetAssemblyTypeName: MapMenu, Assembly-CSharp
-        m_MethodName: PlayIntermediateMap
+        m_TargetAssemblyTypeName: DifficultyMenu, Assembly-CSharp
+        m_MethodName: PlayMediumDifficulty
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1398,7 +1398,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1735435107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,6 +1446,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1735435104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b24744633d0d480d8766b0830aefecd, type: 3}
+  m_Script: {fileID: 11500000, guid: a7b47b60962774784bc2ebb48882fc5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -44,14 +44,33 @@ public class GameManager : MonoBehaviour
 
     private ObjectPool Pool { get; set; }
 
-    private int _roundNumber;
-    public int RoundNumber
+    private static string _map = "Beginner";
+    public static string Map
+    {
+        get => _map;
+        set
+        {
+            _map = value;
+        }
+    }
+    
+    private static string _difficulty = "Easy";
+    public static string Difficulty
+    {
+        get => _difficulty;
+        set
+        {
+            _difficulty = value;
+        }
+    }
+
+    private static int _roundNumber;
+    public static int RoundNumber
     {
         get => _roundNumber;
         set
         {
             _roundNumber = value;
-            if (roundText) roundText.text = $"Round {_roundNumber}";
         }
     }
     
@@ -105,8 +124,32 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         RoundNumber = 0;
-        Currency = 200; // starting amount of money given to player
-        LFPHealth = 100;
+        // starting money
+        switch (Difficulty)
+        {
+            case "Easy":
+                Currency = 300;
+                break;
+            case "Medium":
+                Currency = 200;
+                break;
+            case "Hard":
+                Currency = 100;
+                break;
+        }
+        // starting LFP health
+        switch (Difficulty)
+        {
+            case "Easy":
+                LFPHealth = 200;
+                break;
+            case "Medium":
+                LFPHealth = 150;
+                break;
+            case "Hard":
+                LFPHealth = 100;
+                break;
+        }
     }
 
     private void Update()
@@ -164,7 +207,18 @@ public class GameManager : MonoBehaviour
     private void FinishRound()
     {
         // Reward the player for finishing the round
-        Currency += 150;
+        switch (Difficulty)
+        {
+            case "Easy":
+                Currency += 2 * RoundNumber + 150;
+                break;
+            case "Medium":
+                Currency += RoundNumber + 100;
+                break;
+            case "Hard":
+                Currency += RoundNumber / 2 + 50;
+                break;
+        }
 
         // Turn off round-in-progress indicators
         RoundInProgress = false;
@@ -229,20 +283,20 @@ public class GameManager : MonoBehaviour
             12 => "a8a8b8b",
             13 => "a7a7a7b7b7b",
             14 => "a6b6a6b6a6b6a6b",
-            15 => "b5b5b5a5a5a",
+            15 => "a5a5a5b5b5b",
             16 => "a4b4a4b4b4b4b",
-            17 => "b3b3a3a3b3b3b3a3a3a",
+            17 => "a3a3b3b3a3a3a3b3b3b",
             18 => "a2a2a2a2a2b2b2b2b2b",
             19 => "b1b1b1b1b1b1b1b1b1b",
             20 => "c",
             21 => "a9b9c",
             22 => "a8a8b8b8c",
             23 => "a7a7a7b7b7b7c7c",
-            24 => "c6c6a6a6b6b6a6a",
-            25 => "b5c5a5c5b5c5c5c",
-            26 => "c5c5c5a5b5b5a5c5c",
-            27 => "a4a4b4c4b4c4c4c4c",
-            28 => "c4c4c4c4b4b4b4c4c4c",
+            24 => "a6a6b6b6a6a6c6c",
+            25 => "a5c5b5c5a5c5c5c",
+            26 => "c4c4a4b4a4b4c4c",
+            27 => "a3a3b3c3b3c3c3c3c",
+            28 => "c2c2c2c2b2b2b2c2c2c",
             29 => "c1c1c1c1c1c1c1c1c1c",
             30 => "d",
             31 => "d9a9b9c9a9d",
@@ -265,7 +319,7 @@ public class GameManager : MonoBehaviour
             48 => "e2a2b2e2c2d2e2b2e2e",
             49 => "e1e1e1e1e1e1e1e1e1e",
             50 => "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e",
-            _ => "a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b1a1b"
+            _ => "a1b1c1d1e1a1b1c1d1e1a1b1c1d1e"
         };
         StartCoroutine(Spawn(s));
     }
