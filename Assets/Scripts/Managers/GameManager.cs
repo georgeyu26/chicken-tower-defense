@@ -62,11 +62,11 @@ public class GameManager : MonoBehaviour
         set
         {
             _roundNumber = value;
-            if (roundText) roundText.text = $"Round {_roundNumber}";
+            // if (roundText) roundText.text = $"Round {_roundNumber}";
         }
     }
     
-    public static TextMeshProUGUI roundText;
+    public TextMeshProUGUI roundText;
     public GameObject nextRoundButton;
     public GameObject shopButton;
 
