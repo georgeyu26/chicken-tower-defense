@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviour
             }
 
             RoundNumber = data.savedRound;
-            GameStateManager.difficulty = data.savedDifficulty;
             Currency = data.savedCurrency;
             LFPHealth = data.savedHealth;
             
