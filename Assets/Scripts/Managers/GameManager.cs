@@ -44,26 +44,6 @@ public class GameManager : MonoBehaviour
 
     private ObjectPool Pool { get; set; }
 
-    private string _map = "Beginner";
-    public string Map
-    {
-        get => _map;
-        set
-        {
-            _map = value;
-        }
-    }
-    
-    private string _difficulty = "Easy";
-    public string Difficulty
-    {
-        get => _difficulty;
-        set
-        {
-            _difficulty = value;
-        }
-    }
-
     private int _roundNumber;
     public int RoundNumber
     {
@@ -104,7 +84,7 @@ public class GameManager : MonoBehaviour
             }
 
             RoundNumber = data.savedRound;
-            Difficulty = data.savedDifficulty;
+            GameStateManager.difficulty = data.savedDifficulty;
             Currency = data.savedCurrency;
             LFPHealth = data.savedHealth;
             
@@ -126,7 +106,7 @@ public class GameManager : MonoBehaviour
     {
         RoundNumber = 0;
         // starting money
-        switch (Difficulty)
+        switch (GameStateManager.difficulty)
         {
             case "Easy":
                 Currency = 300;
@@ -139,7 +119,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         // starting LFP health
-        switch (Difficulty)
+        switch (GameStateManager.difficulty)
         {
             case "Easy":
                 LFPHealth = 300;
@@ -148,7 +128,7 @@ public class GameManager : MonoBehaviour
                 LFPHealth = 200;
                 break;
             case "Hard":
-                LFPHealth = 100;
+                LFPHealth = 150;
                 break;
         }
     }
@@ -185,7 +165,7 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         // Save before a round starts
-        GameState save = new GameState(RoundNumber, Difficulty, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
+        GameState save = new GameState(RoundNumber, GameStateManager.difficulty, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
         GameSaveManager.SaveGame(save);
 
         // Augment the round number
@@ -208,7 +188,7 @@ public class GameManager : MonoBehaviour
     private void FinishRound()
     {
         // Reward the player for finishing the round
-        switch (Difficulty)
+        switch (GameStateManager.difficulty)
         {
             case "Easy":
                 Currency += 15 * RoundNumber + 75;
@@ -230,7 +210,7 @@ public class GameManager : MonoBehaviour
         shopButton.SetActive(true);
 
         // Save after a round is over
-        GameState save = new GameState(RoundNumber, Difficulty, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
+        GameState save = new GameState(RoundNumber, GameStateManager.difficulty, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
         GameSaveManager.SaveGame(save);
     }   
 
@@ -243,19 +223,19 @@ public class GameManager : MonoBehaviour
             switch (c)
             {
                 case 'a':
-                    Pool.GetObject("Chick", Difficulty, RoundNumber);
+                    Pool.GetObject("Chick", GameStateManager.difficulty, RoundNumber);
                     break;
                 case 'b':
-                    Pool.GetObject("Chicken", Difficulty, RoundNumber);
+                    Pool.GetObject("Chicken", GameStateManager.difficulty, RoundNumber);
                     break;
                 case 'c':
-                    Pool.GetObject("Cock", Difficulty, RoundNumber);
+                    Pool.GetObject("Cock", GameStateManager.difficulty, RoundNumber);
                     break;
                 case 'd':
-                    Pool.GetObject("Undead", Difficulty, RoundNumber);
+                    Pool.GetObject("Undead", GameStateManager.difficulty, RoundNumber);
                     break;
                 case 'e':
-                    Pool.GetObject("RegimeCockman", Difficulty, RoundNumber);
+                    Pool.GetObject("RegimeCockman", GameStateManager.difficulty, RoundNumber);
                     break;
                 default:
                     yield return new WaitForSeconds(c - '0');
