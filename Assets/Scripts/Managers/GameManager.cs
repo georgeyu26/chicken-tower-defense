@@ -119,18 +119,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         // starting LFP health
-        switch (GameStateManager.difficulty)
-        {
-            case "Easy":
-                LFPHealth = 300;
-                break;
-            case "Medium":
-                LFPHealth = 200;
-                break;
-            case "Hard":
-                LFPHealth = 150;
-                break;
-        }
+        LFPHealth = 100;
     }
 
     private void Update()
@@ -165,7 +154,7 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         // Save before a round starts
-        GameState save = new GameState(RoundNumber, GameStateManager.difficulty, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
+        GameState save = new GameState(RoundNumber, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
         GameSaveManager.SaveGame(save);
 
         // Augment the round number
@@ -210,7 +199,7 @@ public class GameManager : MonoBehaviour
         shopButton.SetActive(true);
 
         // Save after a round is over
-        GameState save = new GameState(RoundNumber, GameStateManager.difficulty, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
+        GameState save = new GameState(RoundNumber, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
         GameSaveManager.SaveGame(save);
     }   
 
