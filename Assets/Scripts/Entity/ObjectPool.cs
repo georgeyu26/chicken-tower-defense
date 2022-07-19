@@ -33,7 +33,8 @@ public class ObjectPool : MonoBehaviour {
                 }
                 if (GameManager.RoundNumber > 50)
                 {
-                    newObject.GetComponent<FollowWaypoints>().maxSpeed += GameManager.RoundNumber - 50;
+                    newObject.GetComponent<FollowWaypoints>().maxSpeed += 0.5f * (GameManager.RoundNumber - 50f);
+                    newObject.GetComponent<ChickenHealth>().maxHealth += 100 * (GameManager.RoundNumber - 50);
                 }
                 newObject.name = type;
                 return newObject;
