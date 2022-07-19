@@ -8,8 +8,9 @@ public class DifficultyMenu : MonoBehaviour
     private void PlayDifficulty(string difficulty)
     {
         GameSaveManager.DeleteSavedGame();
-        GameManager.Difficulty = difficulty;
-        SceneManager.LoadScene(GameManager.Map);
+        // store difficulty somewhere
+        // GameSaveManager.Difficulty = difficulty;
+        //SceneManager.LoadScene(difficulty);
     }
     public void PlayEasyDifficulty() { PlayDifficulty("Easy"); }
     public void PlayMediumDifficulty() { PlayDifficulty("Medium"); }

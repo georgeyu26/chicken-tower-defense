@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
 
     private ObjectPool Pool { get; set; }
 
-    private static string _map = "Beginner";
-    public static string Map
+    private string _map = "Beginner";
+    public string Map
     {
         get => _map;
         set
@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    private static string _difficulty = "Easy";
-    public static string Difficulty
+    private string _difficulty = "Easy";
+    public string Difficulty
     {
         get => _difficulty;
         set
@@ -64,8 +64,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private static int _roundNumber;
-    public static int RoundNumber
+    private int _roundNumber;
+    public int RoundNumber
     {
         get => _roundNumber;
         set
@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
             }
 
             RoundNumber = data.savedRound;
+            Difficulty = data.savedDifficulty;
             Currency = data.savedCurrency;
             LFPHealth = data.savedHealth;
             
@@ -184,7 +185,7 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         // Save before a round starts
-        GameState save = new GameState(RoundNumber, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
+        GameState save = new GameState(RoundNumber, Difficulty, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
         GameSaveManager.SaveGame(save);
 
         // Augment the round number
@@ -229,7 +230,7 @@ public class GameManager : MonoBehaviour
         shopButton.SetActive(true);
 
         // Save after a round is over
-        GameState save = new GameState(RoundNumber, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
+        GameState save = new GameState(RoundNumber, Difficulty, LFPHealth, Currency, GameObject.FindGameObjectsWithTag("Tower"));
         GameSaveManager.SaveGame(save);
     }   
 
@@ -242,19 +243,19 @@ public class GameManager : MonoBehaviour
             switch (c)
             {
                 case 'a':
-                    Pool.GetObject("Chick");
+                    Pool.GetObject("Chick", Difficulty, RoundNumber);
                     break;
                 case 'b':
-                    Pool.GetObject("Chicken");
+                    Pool.GetObject("Chicken", Difficulty, RoundNumber);
                     break;
                 case 'c':
-                    Pool.GetObject("Cock");
+                    Pool.GetObject("Cock", Difficulty, RoundNumber);
                     break;
                 case 'd':
-                    Pool.GetObject("Undead");
+                    Pool.GetObject("Undead", Difficulty, RoundNumber);
                     break;
                 case 'e':
-                    Pool.GetObject("RegimeCockman");
+                    Pool.GetObject("RegimeCockman", Difficulty, RoundNumber);
                     break;
                 default:
                     yield return new WaitForSeconds(c - '0');

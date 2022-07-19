@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public static class GameSaveManager
 {
     public static string mapToLoad = "";
+    public static string difficulty = "";
     
     public static void SaveGame(GameState data)
     {
@@ -41,11 +42,12 @@ public static class GameSaveManager
         var filePath = Application.persistentDataPath + "/" + mapToLoad + ".save";
         if (File.Exists(filePath)) { File.Delete(filePath); }
         mapToLoad = "";
+        difficulty = "";
     }
 
     public static void FindSavedGame()
     {
-        foreach (var map in new[] { "Easy", "Medium", "Hard" })
+        foreach (var map in new[] { "Beginner", "Intermediate", "Advanced" })
         {
             var filePath = Application.persistentDataPath + "/" + map + ".save";
             if (File.Exists(filePath)) { mapToLoad = map; }
