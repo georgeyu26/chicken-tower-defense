@@ -7,7 +7,7 @@ public class MapMenu : MonoBehaviour
 {
     private void PlayMap(string map)
     {
-        GameManager.Map = map;
+        GameStateManager.mapToLoad = map;
         SceneManager.LoadScene("DifficultyMenu");
     }
     public void PlayBeginnerMap() { PlayMap("Beginner"); }

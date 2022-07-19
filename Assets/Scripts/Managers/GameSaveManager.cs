@@ -45,7 +45,7 @@ public static class GameSaveManager
 
     public static void FindSavedGame()
     {
-        foreach (var map in new[] { "Easy", "Medium", "Hard" })
+        foreach (var map in new[] { "Beginner", "Intermediate", "Advanced" })
         {
             var filePath = Application.persistentDataPath + "/" + map + ".save";
             if (File.Exists(filePath)) { mapToLoad = map; }

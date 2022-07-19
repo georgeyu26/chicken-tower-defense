@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class DifficultyMenu : MonoBehaviour
 {
+    public string map;
     private void PlayDifficulty(string difficulty)
     {
         GameSaveManager.DeleteSavedGame();
-        GameManager.Difficulty = difficulty;
-        SceneManager.LoadScene(GameManager.Map);
+        GameStateManager.difficulty = difficulty;
+        SceneManager.LoadScene(GameStateManager.mapToLoad);
     }
     public void PlayEasyDifficulty() { PlayDifficulty("Easy"); }
     public void PlayMediumDifficulty() { PlayDifficulty("Medium"); }

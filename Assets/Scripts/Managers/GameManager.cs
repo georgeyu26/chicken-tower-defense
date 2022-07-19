@@ -44,28 +44,8 @@ public class GameManager : MonoBehaviour
 
     private ObjectPool Pool { get; set; }
 
-    private static string _map = "Beginner";
-    public static string Map
-    {
-        get => _map;
-        set
-        {
-            _map = value;
-        }
-    }
-    
-    private static string _difficulty = "Easy";
-    public static string Difficulty
-    {
-        get => _difficulty;
-        set
-        {
-            _difficulty = value;
-        }
-    }
-
-    private static int _roundNumber;
-    public static int RoundNumber
+    private int _roundNumber;
+    public int RoundNumber
     {
         get => _roundNumber;
         set
@@ -125,31 +105,9 @@ public class GameManager : MonoBehaviour
     {
         RoundNumber = 0;
         // starting money
-        switch (Difficulty)
-        {
-            case "Easy":
-                Currency = 300;
-                break;
-            case "Medium":
-                Currency = 200;
-                break;
-            case "Hard":
-                Currency = 100;
-                break;
-        }
+        Currency = GameStateManager.getStartingCurrency();
         // starting LFP health
-        switch (Difficulty)
-        {
-            case "Easy":
-                LFPHealth = 300;
-                break;
-            case "Medium":
-                LFPHealth = 200;
-                break;
-            case "Hard":
-                LFPHealth = 100;
-                break;
-        }
+        LFPHealth = 100;
     }
 
     private void Update()
@@ -207,18 +165,7 @@ public class GameManager : MonoBehaviour
     private void FinishRound()
     {
         // Reward the player for finishing the round
-        switch (Difficulty)
-        {
-            case "Easy":
-                Currency += 15 * RoundNumber + 75;
-                break;
-            case "Medium":
-                Currency += 10 * RoundNumber + 50;
-                break;
-            case "Hard":
-                Currency += 5 * RoundNumber + 25;
-                break;
-        }
+        Currency += GameStateManager.getRoundBonus(RoundNumber);
 
         // Turn off round-in-progress indicators
         RoundInProgress = false;
@@ -242,19 +189,19 @@ public class GameManager : MonoBehaviour
             switch (c)
             {
                 case 'a':
-                    Pool.GetObject("Chick");
+                    Pool.GetObject("Chick", GameStateManager.difficulty, RoundNumber);
                     break;
                 case 'b':
-                    Pool.GetObject("Chicken");
+                    Pool.GetObject("Chicken", GameStateManager.difficulty, RoundNumber);
                     break;
                 case 'c':
-                    Pool.GetObject("Cock");
+                    Pool.GetObject("Cock", GameStateManager.difficulty, RoundNumber);
                     break;
                 case 'd':
-                    Pool.GetObject("Undead");
+                    Pool.GetObject("Undead", GameStateManager.difficulty, RoundNumber);
                     break;
                 case 'e':
-                    Pool.GetObject("RegimeCockman");
+                    Pool.GetObject("RegimeCockman", GameStateManager.difficulty, RoundNumber);
                     break;
                 default:
                     yield return new WaitForSeconds(c - '0');
