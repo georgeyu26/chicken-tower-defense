@@ -44,9 +44,18 @@ public class GameManager : MonoBehaviour
 
     private ObjectPool Pool { get; set; }
 
-    // 0 = easy, 1 = medium, 2 = hard
-    private static int _difficulty = 0;
-    public static int Difficulty
+    private static string _map = "Beginner";
+    public static string Map
+    {
+        get => _map;
+        set
+        {
+            _map = value;
+        }
+    }
+    
+    private static string _difficulty = "Easy";
+    public static string Difficulty
     {
         get => _difficulty;
         set
@@ -118,26 +127,26 @@ public class GameManager : MonoBehaviour
         // starting money
         switch (Difficulty)
         {
-            case 0:
+            case "Easy":
                 Currency = 300;
                 break;
-            case 1:
+            case "Medium":
                 Currency = 200;
                 break;
-            case 2:
+            case "Hard":
                 Currency = 100;
                 break;
         }
         // starting LFP health
         switch (Difficulty)
         {
-            case 0:
+            case "Easy":
                 LFPHealth = 200;
                 break;
-            case 1:
+            case "Medium":
                 LFPHealth = 150;
                 break;
-            case 2:
+            case "Hard":
                 LFPHealth = 100;
                 break;
         }
@@ -200,13 +209,13 @@ public class GameManager : MonoBehaviour
         // Reward the player for finishing the round
         switch (Difficulty)
         {
-            case 0:
+            case "Easy":
                 Currency += 2 * RoundNumber + 150;
                 break;
-            case 1:
+            case "Medium":
                 Currency += RoundNumber + 100;
                 break;
-            case 2:
+            case "Hard":
                 Currency += RoundNumber / 2 + 50;
                 break;
         }
@@ -310,7 +319,7 @@ public class GameManager : MonoBehaviour
             48 => "e2a2b2e2c2d2e2b2e2e",
             49 => "e1e1e1e1e1e1e1e1e1e",
             50 => "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e",
-            _ => "a1b1c1d1e"
+            _ => "a1b1c1d1e1a1b1c1d1e1a1b1c1d1e"
         };
         StartCoroutine(Spawn(s));
     }

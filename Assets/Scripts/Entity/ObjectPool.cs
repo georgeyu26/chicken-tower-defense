@@ -21,13 +21,13 @@ public class ObjectPool : MonoBehaviour {
                 newObject.GetComponent<FollowWaypoints>().waypoints = _waypointStrategy.GetWaypoints();
                 switch (GameManager.Difficulty)
                 {
-                    case 0:
+                    case "Easy":
                         newObject.GetComponent<FollowWaypoints>().maxSpeed *= 0.75f;
                         break;
-                    case 1:
+                    case "Medium":
                         newObject.GetComponent<FollowWaypoints>().maxSpeed *= 1.0f;
                         break;
-                    case 2:
+                    case "Hard":
                         newObject.GetComponent<FollowWaypoints>().maxSpeed *= 1.25f;
                         break;
                 }

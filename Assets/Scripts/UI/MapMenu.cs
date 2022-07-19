@@ -7,10 +7,10 @@ public class MapMenu : MonoBehaviour
 {
     private void PlayMap(string map)
     {
-        GameSaveManager.DeleteSavedGame();
-        SceneManager.LoadScene(map);
+        GameManager.Map = map;
+        SceneManager.LoadScene("DifficultyMenu");
     }
-    public void PlayEasyMap() { PlayMap("Easy"); GameManager.Difficulty = 0; }
-    public void PlayMedMap() { PlayMap("Medium"); GameManager.Difficulty = 1; }
-    public void PlayHardMap() { PlayMap("Hard"); GameManager.Difficulty = 2; }
+    public void PlayBeginnerMap() { PlayMap("Beginner"); }
+    public void PlayIntermediateMap() { PlayMap("Intermediate"); }
+    public void PlayAdvancedMap() { PlayMap("Advanced"); }
 }
