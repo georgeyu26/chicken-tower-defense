@@ -319,7 +319,7 @@ public class GameManager : MonoBehaviour
             48 => "e2a2b2e2c2d2e2b2e2e",
             49 => "e1e1e1e1e1e1e1e1e1e",
             50 => "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e",
-            _ => "a1b1c1d1e1a1b1c1d1e1a1b1c1d1e"
+            _ => "e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e1e"
         };
         StartCoroutine(Spawn(s));
     }
