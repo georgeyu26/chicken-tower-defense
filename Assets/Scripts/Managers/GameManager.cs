@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour
         set
         {
             _roundNumber = value;
-            // if (roundText) roundText.text = $"Round {_roundNumber}";
         }
     }
     
