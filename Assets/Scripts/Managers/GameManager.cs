@@ -289,6 +289,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        Time.timeScale = 1f;
         GameSaveManager.DeleteSavedGame();
         SceneManager.LoadScene("GameOver");
     }
