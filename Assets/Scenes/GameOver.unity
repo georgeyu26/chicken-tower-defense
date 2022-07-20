@@ -326,7 +326,7 @@ MonoBehaviour:
   - {fileID: 2117749463, guid: 761ab4705ea547e49a1e85a59dff54e4, type: 3}
   - {fileID: -1506344840, guid: 761ab4705ea547e49a1e85a59dff54e4, type: 3}
   - {fileID: -1496412061, guid: 761ab4705ea547e49a1e85a59dff54e4, type: 3}
-  framesPerSprite: 80
+  framesPerSprite: 8
   loop: 1
   destroyOnEnd: 0
 --- !u!114 &372532219
@@ -659,7 +659,7 @@ MonoBehaviour:
   - {fileID: 2117749463, guid: 761ab4705ea547e49a1e85a59dff54e4, type: 3}
   - {fileID: -1506344840, guid: 761ab4705ea547e49a1e85a59dff54e4, type: 3}
   - {fileID: -1496412061, guid: 761ab4705ea547e49a1e85a59dff54e4, type: 3}
-  framesPerSprite: 80
+  framesPerSprite: 8
   loop: 1
   destroyOnEnd: 0
 --- !u!114 &770379624

@@ -35,6 +35,9 @@ public class ShopManager : MonoBehaviour
     }
 
     public void Toggle(){
+        if (PauseMenu.paused){
+            return;
+        }
         showShop = !showShop;
         shopPanel.SetActive(showShop);
     }

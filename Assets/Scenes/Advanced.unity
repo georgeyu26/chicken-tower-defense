@@ -337,7 +337,7 @@ MonoBehaviour:
   - {fileID: -1043378789, guid: 3d8f4bfecfc86e94c98052342c9b3aa4, type: 3}
   - {fileID: -1425576384, guid: 3d8f4bfecfc86e94c98052342c9b3aa4, type: 3}
   - {fileID: 2027831762, guid: 3d8f4bfecfc86e94c98052342c9b3aa4, type: 3}
-  framesPerSprite: 32
+  framesPerSprite: 6
   loop: 1
   destroyOnEnd: 0
 --- !u!114 &66158645
