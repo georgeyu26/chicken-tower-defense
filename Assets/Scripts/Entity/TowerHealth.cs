@@ -12,7 +12,7 @@ public class TowerHealth : Health
         _map = GameObject.Find("Ground").GetComponent<Tilemap>();
     }
 
-    protected override void UpdateVisual()
+    public override void UpdateVisual()
     {
         // Change hue of object tower on how much damage it has taken (gets redder as HP drops)
         sp.color = new Color(

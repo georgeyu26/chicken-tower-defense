@@ -35,7 +35,7 @@ public abstract class Health : MonoBehaviour
     }
     
     protected abstract void InitializeMapComponents();
-    protected abstract void UpdateVisual();
+    public abstract void UpdateVisual();
     protected abstract void HandleGameStateInteractions();
     protected abstract SpriteRenderer GetSpriteRenderer();
 }

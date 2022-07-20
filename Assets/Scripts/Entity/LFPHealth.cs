@@ -8,7 +8,7 @@ public class LFPHealth : Health
         return gameObject.GetComponent<SpriteRenderer>();
     }
     
-    protected override void UpdateVisual()
+    public override void UpdateVisual()
     {
         FindObjectOfType<GameManager>().LFPHealth = currentHealth > 0 ? currentHealth : 0;
         Handheld.Vibrate();

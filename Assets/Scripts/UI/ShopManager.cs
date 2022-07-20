@@ -70,6 +70,7 @@ public class ShopManager : MonoBehaviour
     public void Repair()
     {
         gameManager.LastTower.GetComponent<TowerHealth>().currentHealth = gameManager.LastTower.GetComponent<TowerHealth>().maxHealth;
+        gameManager.LastTower.GetComponent<Health>().UpdateVisual();
         int repairCost = gameManager.LastTower.GetComponent<ShopData>().repairCost;
         gameManager.Currency -= repairCost;
         gameManager.LastTower.GetComponent<ShopData>().repairCost = (int) (gameManager.LastTower.GetComponent<ShopData>().repairCost*1.5);

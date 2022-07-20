@@ -7,7 +7,7 @@ public class ChickenHealth : Health
         return gameObject.GetComponentsInChildren<SpriteRenderer>()[1];
     }
     
-    protected override void UpdateVisual()
+    public override void UpdateVisual()
     {
         // Change hue of chicken depending on how much damage it has taken (gets redder as HP drops)
         sp.color = new Color(
