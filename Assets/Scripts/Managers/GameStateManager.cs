@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public static class GameStateManager
 {
-    public static string mapToLoad = "";
-    public static string difficulty = "";
+    public static string mapToLoad = "Beginner";
+    public static string difficulty = "Easy";
 
     public static int getStartingCurrency()
     {
