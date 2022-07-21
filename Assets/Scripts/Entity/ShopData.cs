@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class ShopData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] public int cost;
-
     private GameManager gameManager;
 
-    public int level;
-
-    public int upgradeCost;
-    public int repairCost;
-    void Awake()
+    public int cost;
+    public int level = 1;
+    public int upgradeCost = 100;
+    public int repairCost = 100;
+    
+    private void Awake()
     {
-        level = 1;
-        upgradeCost = 100;
-        repairCost = 100;
         gameManager = FindObjectOfType<GameManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
