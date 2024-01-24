@@ -1,5 +1,4 @@
-# chicken-tower-defence
-Chicken Tower Defence
+# Chicken Tower Defense
 
 Protect your base from angry chickens!
 
