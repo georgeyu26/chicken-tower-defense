@@ -1,5 +1,5 @@
 # chicken-tower-defence
-Chicken Tower Defence 1
+Chicken Tower Defence
 
 https://play.google.com/store/apps/details?id=com.DefaultCompany.ChickenTowerDefence
 
